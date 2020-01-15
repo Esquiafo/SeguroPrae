@@ -1,0 +1,55 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/header.ejs') %>
+    <!-- BODY ACA -->
+    <div class="loginCont">
+        <div class="row">
+            <div class="col-sm-12 col-md-3 col-lg-3"></div>
+            <div class="col-sm-12 col-md-4 col-lg-4 ">
+                <div class="divIniTxt"> <b>INICIAR SESIÓN</b></div>
+                <form action="" method="POST">
+                    <p>
+                        <div class="input-group">
+                            <select class="form-control input-sm selectpicker show-menu-arrow" id="tipDoc" name="tipDoc"
+                                title="Tipo de documento" data-fv-field="tipDoc" tabindex="-98">
+                                <option value="">Tipo de Documento</option>
+                                <option value="DU">DNI</option>
+                                <option value="LC">LIBRETA CIVICA</option>
+                                <option value="CL">CUIL</option>
+                            </select>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group">
+                            <input class="form-control input-sm" placeholder="Número de documento"
+                                name="NumeroDocumento" id="NumeroDocumento" type="text">
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group">
+                            <input class="form-control input-sm" placeholder="Clave de acceso" name="ClaveAcceso"
+                                id="ClaveAcceso" type="password" data-fv-field="ClaveAcceso">
+                        </div>
+                    </p>
+                    <div class="form-group">
+                        <div class="col-xs-12 Mt10 divBtnSubmit">
+                            <button type="submit" id="btnSubmit" class="btn btn-block btnSubmit">INGRESAR</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 Mt10">
+                            <small><a class="reg" id="Register" href="/user/register">
+                                    <b> Registrarme por primera vez </b>|
+                                </a>
+                                <small><a class="reg" id="RecPass" href="">
+                                        <b> ¿Olvidaste tu contraseña?</b>
+                                    </a>
+                                </small>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-sm-12 col-md-5 col-lg-5"></div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>

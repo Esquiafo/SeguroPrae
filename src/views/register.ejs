@@ -1,0 +1,72 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/header.ejs') %>
+    <!-- BODY ACA -->
+    <div class="regContenedor">
+        <div class="row">
+            <div class="col-sm-1 col-md-3 col-lg-2"></div>
+            <div class="col-sm-10 col-md-6 col-lg-8 divReg">
+                <form action="" method="POST">
+                    <p>
+                        <div class="input-group">
+                            <input class="form-control input-sm" placeholder="Nombre Completo" name="usrName"
+                                id="usrName" type="text">
+                        </div>
+                    </p>
+                    <p>
+                    </p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                    <p>
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="emailConf" placeholder="Confirme su e-mail">
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="foneNum" placeholder="Telefono de contacto">
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group">
+                            <select class="form-control input-sm selectpicker show-menu-arrow" id="tipDoc" name="tipDoc"
+                                title="Tipo de documento" data-fv-field="tipDoc" tabindex="-98">
+                                <option value="">Tipo de Documento</option>
+                                <option value="DU">DNI</option>
+                                <option value="LC">LIBRETA CIVICA</option>
+                                <option value="CL">CUIL</option>
+                            </select>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group">
+                            <input class="form-control input-sm" placeholder="Número de documento"
+                                name="NumeroDocumento" id="NumeroDocumento" type="text">
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group">
+                            <input class="form-control input-sm" placeholder="Contraseña" name="password"
+                                id="password" type="password" disabled="" data-fv-field="password">
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group">
+                            <input class="form-control input-sm" placeholder="Confime su contraseña" name="confPassword"
+                                id="confPassword" type="password"  data-fv-field="confPassword">
+                        </div>
+                    </p>
+                    <div class="form-group">
+                        <div class="col-xs-12 Mt10">
+                            <button type="submit" id="btnSubmit" class="btn btn-block btnSubmit"
+                                disabled="">REGISTRARSE</button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="col-sm-1 col-md-3 col-lg-2"></div>
+        </div>
+    </div>
+    <!-- FOOTER DESDE ACA -->
+    <%- include('partials/footer') %>

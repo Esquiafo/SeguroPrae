@@ -1,0 +1,109 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+    <!-- CAMBIAR DESDE ACA -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-4 imgPrdAdd">
+                <div class="imagen">
+                    <a href="" target="_blank"><img src="/images/fire-prdAdd.png" alt="" /></a>
+                </div>
+                <div class="imagen">
+                    <a href="" target="_blank"><img src="/images/user-prdAdd.png" alt="" /></a>
+                </div>
+                <div class="imagen">
+                    <a href="" target="_blank"><img src="/images/heart-prdAdd.png" alt="" /></a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-8 formPrdAdd">
+                <form class="was-validated" action="/products/productAdd" method="POST" enctype="multipart/form-data">
+                    <div class="input-group formImp formImp1">
+                        <input class="form-control input-sm imp" placeholder="Categoria a asegurar" name="prd_category"
+                            id="prd_category" type="text">
+                    </div>
+                    <div class="mb-10 formImp formImp2">
+                        <textarea class="form-control is-invalid imptArea" id="prd_Description" name="prd_Description"
+                            placeholder="Descripción del seguro" required></textarea>
+                    </div>
+                    <div class="input-group formImp formImp3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="prd_image" name="prd_image" aria-describedby="prdImg">
+                            <label class="custom-file-label imp" for="prd_image">Elija una imagen de referencia</label>
+                        </div>
+                    </div>
+                    <div class="input-group formImp formImp4">
+                        <input class="form-control input-sm imp" placeholder="Precio" name="prd_price"
+                            id="prd_price" type="number">
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-sm-6">
+                            <button type="submit" id="btnSubmit" class="btn btn-block btnSubmit">AGREGAR</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- HASTA ACA -->
+    <!-- FOOTER DESDE ACA -->
+    <div class="footer">
+        <div class="row">
+            <div class="col-sm-12"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 bloqueder pra">Praesidium
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link nlfooter" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nlfooter" href="#">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nlfooter" href="#">Contacto</a>
+                            </li>
+                    </div>
+                    <div class="col-sm-6 bloqueizq">
+                        <div class="rightfooter">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Newsletter</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                                aria-describedby="emailHelp" placeholder="Ingrese su eMail">
+                                            <small id="emailHelp" class="form-text text-muted">No compartiremos este
+                                                eMail con nadie mas.</small>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 bloqazo">
+                                <a href="" target="_blank"><img
+                                        src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/facebook-icon_24x24.png"
+                                        alt="" /></a>
+                            </div>
+                            <div class="col-sm-3 bloqazo">
+                                <a href="" target="_blank"><img
+                                        src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/twitter-icon_24x24.png"
+                                        alt="" /></a></div>
+                            <div class="col-sm-3 bloqazo">
+                                <a href="" target="_blank"><img
+                                        src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/youtube-icon_24x24.png"
+                                        alt="" /></a></div>
+                            <div class="col-sm-3 bloqazo">
+                                <a href="" target="_blank"><img
+                                        src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/instagram-icon_24x24.png"
+                                        alt="" /></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
