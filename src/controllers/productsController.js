@@ -7,7 +7,6 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 // Helper Functions
 function getAllProducts () {
 	let productsFileContent = fs.readFileSync(productsFilePath, 'utf-8');
-	console.log(productsFileContent);
 	let productsArray;
 	if (productsFileContent == '') {
 		productsArray = [];
@@ -29,6 +28,10 @@ function generateId () {
 function storeUser (productData) {
 	let products = getAllProducts();
 	products.push(productData);
+	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+}
+
+function guardarProductos (products) {
 	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 }
 
@@ -61,6 +64,19 @@ const controller = {
 		// Redirección
 		res.redirect('/products/productAdd');
 	},
+	productsAll: (req, res) => {
+		let productsData = getAllProducts();
+		res.render('products/allProducts', { productsData });
+
+	},
+	deleteProduct: function (req, res){
+		let productsData = getAllProducts();
+		finalPrdData = productsData.filter(function(product){
+			return product.id != req.params.productId;
+		});
+		guardarProductos(finalPrdData);
+		res.redirect('/products/allProducts');
+	}
 	
 };
 

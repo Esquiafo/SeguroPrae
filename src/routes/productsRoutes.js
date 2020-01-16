@@ -33,5 +33,10 @@ router.get('/productAdd', productsController.productAdd);
 // /products (POST) Acción de creación (a donde se envía el formulario)
 router.post('/productAdd', upload.single('prd_image'),productsController.storeProduct);
 
+// /products/:id (DELETE) Acción de borrado
+router.get('/allProducts', productsController.productsAll);
+
+// /products/:id (DELETE) Acción de borrado
+router.post('/deleteProduct/:productId', productsController.deleteProduct);
 
 module.exports = router;

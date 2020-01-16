@@ -1,0 +1,28 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+<!-- CAMBIAR DESDE ACA -->
+<div class="container">
+  <div class="row">
+    <ul>
+      <% productsData.forEach(function (product) { %>
+      <li>
+        <div class="col-lg-2 imgcart">
+          <img src="../images/prdImages/<%= product.prd_image %>" style="width: 200px;height: 200px;">
+        </div>
+        <div class="col-lg-4">
+          <b>Categoria:</b> <%= product.prd_category %> <br>
+          <b>Descripcion:</b> <%= product.prd_description %> <br>
+          <b>Precio:</b> $<%= product.prd_price %> <br>
+
+          <form action="/products/deleteProduct/<%= product.id %>" method="POST">
+            <button>BORRAR</button>
+          </form>
+        </div>
+      </li>
+      <% }) %>
+
+    </ul>
+  </div>
+</div>
+
+<% - include('../partials/footer.ejs') %>
