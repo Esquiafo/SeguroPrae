@@ -47,7 +47,8 @@ const controller = {
 		res.render('products/productDetailsvida');
 	},
 	productDetailsincendios: (req, res) => {
-		res.render('products/productDetailsincendios');
+		let productsData = getAllProducts();
+		res.render('products/productDetailsincendios', { productsData });
 	},
 	productAdd: (req, res) => {
 		res.render('products/productAdd');

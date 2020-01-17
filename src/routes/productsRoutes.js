@@ -19,13 +19,13 @@ let diskStorage = multer.diskStorage({
 
 let upload = multer({ storage: diskStorage })
 
-router.get('/productCart', productsController.productCart);
+router.get('/cart', productsController.productCart);
 
-router.get('/productDetailsvida', productsController.productDetailsvida);
+router.get('/vida', productsController.productDetailsvida);
 
-router.get('/productDetailsincendios', productsController.productDetailsincendios);
+router.get('/incendios', productsController.productDetailsincendios);
 
-router.get('/productDetailsroboperdida', productsController.productDetailsroboperdida);
+router.get('/robo-perdida', productsController.productDetailsroboperdida);
 
 // /products/create (GET) Formulario de creación de productos
 router.get('/productAdd', productsController.productAdd);
