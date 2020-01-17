@@ -69,14 +69,22 @@ const controller = {
 		res.render('products/allProducts', { productsData });
 
 	},
-	deleteProduct: function (req, res){
+	deleteProduct: (req, res) => {
 		let productsData = getAllProducts();
 		finalPrdData = productsData.filter(function(product){
 			return product.id != req.params.productId;
 		});
 		guardarProductos(finalPrdData);
 		res.redirect('/products/allProducts');
-	}
+	},
+	updProduct: (req, res) => {
+		let productsData = getAllProducts();
+		updPrd = productsData.filter(function(product){
+			return product.id == req.params.productId;
+		});
+		
+		res.render('products/updProduct', {updPrd});
+	},
 	
 };
 

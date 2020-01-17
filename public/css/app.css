@@ -238,6 +238,14 @@ label,
 
 }
 
+.prdDet {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+    width: 100%;
+    overflow: hidden;
+}
+
 @media only screen and (min-width: 769px) {
 
     .logo{
@@ -281,3 +289,4 @@ label,
         font-size: 18px;        
     }
 }
+
