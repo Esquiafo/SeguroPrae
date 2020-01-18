@@ -3,7 +3,22 @@
 * {
     box-sizing: border-box; 
   }
+.imgcart{
+    display: flex;
+    padding: 20px;
+}
 
+.ayuda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.asd{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin-left: 85px;
+}
 .body{
     width: 100%;
     font-family: 'Lato', sans-serif;
