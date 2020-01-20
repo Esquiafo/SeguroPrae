@@ -12,18 +12,37 @@
                                 </div>
                          </div>
              </div>
+             <div class="container">
+              <div class="row">
+                <br>
+                <%  productsData.filter(function (el) { %>
+                  <%   return (el.prd_category === "VIDA"); %>
+                  <% }).map(function(el) { %>
+                    <br>
+                    <div class="col-sm-12 col-md-12 col-lg-12 prdDet">
+                            
+                    <div class="col-sm-4 col-md-4 imgcart">
+                      <img src="../images/prdImages/<%= el.prd_image %>" style="width: 200px;height: 200px;">
+                    </div>
+                    <br>
+                    <div class="col-sm-8 col-md-8">
+                      <br>
+                      <b>Categoria:</b>   <%=  el.prd_category %>  <br>
+                      <b>Descripcion:</b>   <%=  el.prd_description %>  <br>
+                      <b>Precio: $</b>   <%=  el.prd_price %>  <br>
+                    <br>
+
+                      <br>
+                    </div>
+                    </div>
+                 
+                    <% }).sort(); %>
+            
+                
+              </div>
+            </div>
 
     </div>
-    <%  productsData.filter(function (el) { %>
-      <%   return (el.prd_category === "VIDA"); %>
-      <% }).map(function(el) { %>
-        <img src="../images/prdImages/<%=el.prd_image%>" style="width: 200px;height: 200px;"> <br>
-          <b>Categoria:</b>   <%=  el.prd_category %>  <br>
-          <b>Descripcion:</b>   <%=  el.prd_description %>  <br>
-          <b>Precio: $</b>   <%=  el.prd_price %>  <br>
-          <br>
-          <% }).sort(); %>
-
 
     <!-- HASTA ACA -->
     <!-- FOOTER DESDE ACA -->
