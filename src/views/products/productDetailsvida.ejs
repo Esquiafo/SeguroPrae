@@ -17,9 +17,11 @@
     <%  productsData.filter(function (el) { %>
       <%   return (el.prd_category === "VIDA"); %>
       <% }).map(function(el) { %>
+        <img src="../images/prdImages/<%=el.prd_image%>" style="width: 200px;height: 200px;"> <br>
           <b>Categoria:</b>   <%=  el.prd_category %>  <br>
           <b>Descripcion:</b>   <%=  el.prd_description %>  <br>
           <b>Precio: $</b>   <%=  el.prd_price %>  <br>
+          <br>
           <% }).sort(); %>
 
 

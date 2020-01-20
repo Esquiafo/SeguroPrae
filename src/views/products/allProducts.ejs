@@ -3,9 +3,9 @@
 <!-- CAMBIAR DESDE ACA -->
 <div class="container">
   <div class="row">
-    <ul>
+    <br>
       <% productsData.forEach(function (product) { %>
-      <li>
+      
         <br>
         <div class="col-sm-12 col-md-12 col-lg-12 prdDet">
                 
@@ -14,6 +14,7 @@
         </div>
         <br>
         <div class="col-sm-8 col-md-8">
+          <br>
           <b>Categoria:</b> <%= product.prd_category %> <br>
           <b>Descripcion:</b> <%= product.prd_description %> <br>
           <b>Precio:</b> $<%= product.prd_price %> <br>
@@ -24,10 +25,10 @@
           <br>
         </div>
         </div>
-      </li>
+     
       <% }) %>
 
-    </ul>
+    
   </div>
 </div>
 
