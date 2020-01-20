@@ -6,7 +6,7 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 
 // Helper Functions
 function getAllProducts () {
-	let productsFileContent = fs.readFileSync(productsFilePath, 'utf-8');
+	let productsFileContent = fs.readFileSync(productsFilePath, {encoding:'utf-8'});
 	let productsArray;
 	if (productsFileContent == '') {
 		productsArray = [];
@@ -83,7 +83,7 @@ const controller = {
 			return product.id == req.params.productId;
 		});
 		
-		res.render('products/updProduct', {updPrd});
+		res.render('products/productUpd', {updPrd: updPrd});
 	},
 	
 };

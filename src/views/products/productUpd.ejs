@@ -15,26 +15,28 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-8 formPrdAdd">
-            <form class="was-validated" action="/products/productAdd" method="POST" enctype="multipart/form-data">
+           <h1>Editando producto <%= updPrd.prd_price %></h1>
+            <form class="was-validated" action="/products/productUpd?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="input-group formImp formImp1">
-                    <input class="form-control input-sm imp" placeholder="Categoria a asegurar" name="prd_category"
-                        id="prd_category" type="text">
+                    <input class="form-control input-sm imp" type="text" name="prd_category" value="<%= updPrd.prd_category %>" 
+                        id="prd_category" >
                 </div>
                 
                 <div class="mb-10 formImp formImp2">
-                    <textarea class="form-control is-invalid imptArea" id="prd_Description" name="prd_Description"
-                        placeholder="Descripción del seguro" required></textarea>
+                    <textarea class="form-control is-invalid imptArea" id="prd_description" name="prd_description"
+                    value="<%= updPrd.prd_description %>" required></textarea>
                 </div>
                 <div class="input-group formImp formImp3">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="prd_image" name="prd_image"
-                            aria-describedby="prdImg" >
-                        <label class="custom-file-label imp" for="prd_image">Elija una imagen de referencia</label>
+                            aria-describedby="prdImg" value="<%= updPrd.prd_image %>">
+                        <label class="custom-file-label imp" for="prd_image"></label>
                     </div>
                 </div>
+                
                 <div class="input-group formImp formImp4">
-                    <input class="form-control input-sm imp" placeholder="Precio" name="prd_price" id="prd_price"
-                        type="number">
+                    <input class="form-control input-sm imp" name="prd_price" id="prd_price"
+                        type="number" value="<%= updPrd.prd_price %>">
                 </div>
                 <div class="form-group ">
                     <div class="col-sm-6">

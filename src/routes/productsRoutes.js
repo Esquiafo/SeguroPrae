@@ -40,7 +40,7 @@ router.get('/allProducts', productsController.productsAll);
 router.post('/deleteProduct/:productId', productsController.deleteProduct);
 
 // /products/:id/edit (GET) Formulario de edición de productos
-router.get('/updProduct/:productId', productsController.updProduct);
+router.get('/productUpd/:productId', productsController.updProduct);
 // /products/:id (PUT) Acción de edición (a donde se envía el formulario):
-
+router.put('/productUpd/:productId', productsController.updProduct);
 module.exports = router;
