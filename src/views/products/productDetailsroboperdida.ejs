@@ -3,59 +3,30 @@
     <!-- CAMBIAR DESDE ACA -->
      <div class="container">
             <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-5 bloques">
-                            <p>Vida</p>
+                        <div class="col-sm-12 col-md-12 col-lg-12 bloques">
+                            <p>Robo y/o perdida</p>
                                 <div class="imagen">
-                                        <a href="" target="_blank"><img src="../images/heart.png" alt=""/></a>
+                                        <a href="" target="_blank"><img src="../images/user.png" alt=""/></a>
                                         </div>
                                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit elementum eget congue, tristique sollicitudin enim eu nisi ultrices iaculis justo scelerisque, phasellus vestibulum metus rhoncus sapien a integer odio ligula. Senectus parturient maecenas conubia netus pharetra felis placerat tincidunt, tortor fusce cras ligula nostra cursus augue duis lacinia, nascetur semper a habitasse euismod inceptos vivamus. Sociosqu ante neque morbi pulvinar habitasse enim himenaeos, ultrices per orci molestie nisi fames dignissim praesent, lacus iaculis class cursus mollis eros.</p>
                                 </div>
-                        <div class="col-sm-12 col-md-12 col-lg-7 bloques"> <p> Seguros disponibles</p>
+
                                   
-                                  <div id="demo" class="carousel slide" data-ride="carousel">
-                                    <ul class="carousel-indicators">
-                                      <li data-target="#demo" data-slide-to="0" class="active"></li>
-                                      <li data-target="#demo" data-slide-to="1"></li>
-                                      <li data-target="#demo" data-slide-to="2"></li>
-                                    </ul>
-                                    <div class="carousel-inner">
-                                      <div class="carousel-item active" style="width: 500px; height: 500px;">
-                                        <img src="../images/autorobado.jpg" alt="Los Angeles">
-                                        <div class="carousel-caption">
-                                          <h3 class="imagenblanca">¡Robo de Auto!</h3>
-                                          <p class="imagenblanca"> Si sufriera una robo y/o perdida este protegido a vehiculo a solo $123 al mes</p>
-                                          <button type="button" class="btn btn" onclick="location='/products/productCart'">Comprar</button>
-                                        </div>   
-                                      </div>
-                                      <div class="carousel-item">
-                                        <img src="../images/celularrobo.png" alt="Chicago" style="width: 500px; height: 500px;" >
-                                        <div class="carousel-caption">
-                                          <h3 class="imagenblanca">¡Robo y/o perdida del Celular!</h3>
-                                          <p class="imagenblanca">Si sufriera un robo y/o perdida este protegido a  a $160 al mes </p>
-                                          <button type="button" class="btn btn" onclick="location='/products/productCart'">Comprar</button>
-                                        </div>   
-                                      </div>
-                                      <div class="carousel-item">
-                                        <img src="../images/notebookrobo.jpg" alt="New York" style="width: 500px; height: 500px;">
-                                        <div class="carousel-caption">
-                                          <h3 class="imagenblanca">¡Robo y/o perdida de su Notebook!</h3>
-                                          <p class="imagenblanca">Si tuviera la desgracia de sufrir un robo y/o perdida este protegido a  por solo $90 al mes</p>
-                                          <button type="button" class="btn btn" onclick="location='/products/productCart'">Comprar</button>
-                                        </div>   
-                                      </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                      <span class="carousel-control-prev-icon"></span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                                      <span class="carousel-control-next-icon"></span>
-                                    </a>
-                                  </div>
-                                  
+
                     
                          </div>
              </div>
 
     </div>
+    <%  productsData.filter(function (el) { %>
+      <%   return (el.prd_category === "ROBO-PERDIDA"); %>
+      <% }).map(function(el) { %>
+        <img src="../images/prdImages/<%=el.prd_image%>" style="width: 200px;height: 200px;"> <br>
+          <b>Categoria:</b>   <%=  el.prd_category %>  <br>
+          <b>Descripcion:</b>   <%=  el.prd_description %>  <br>
+          <b>Precio: $</b>   <%=  el.prd_price %>  <br>
+          <br>
+          <% }).sort(); %>
+
     <!-- HASTA ACA -->
     <%- include('../partials/footer') %>

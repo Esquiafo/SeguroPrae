@@ -41,13 +41,16 @@ const controller = {
 		res.render('products/productCart');
 	},
 	productDetailsroboperdida: (req, res) => {
-		res.render('products/productDetailsroboperdida');
+		let productsData = getAllProducts();
+		res.render('products/productDetailsroboperdida', { productsData });
 	},
 	productDetailsvida: (req, res) => {
-		res.render('products/productDetailsvida');
+		let productsData = getAllProducts();
+		res.render('products/productDetailsvida', { productsData });
 	},
 	productDetailsincendios: (req, res) => {
-		res.render('products/productDetailsincendios');
+		let productsData = getAllProducts();
+		res.render('products/productDetailsincendios', { productsData });
 	},
 	productAdd: (req, res) => {
 		res.render('products/productAdd');
