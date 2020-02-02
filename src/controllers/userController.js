@@ -1,4 +1,33 @@
 const { validationResult } = require('express-validator'); 
+const fs = require('fs');
+const path = require('path');
+
+const userFilePath = path.join(__dirname, '../data/user.json');
+
+function getAllUsers() {
+	let userFileContent= fs.readFileSync(userFilePath, {encoding: 'utf-8'});
+	let userArray;
+	if(userFileContent == ''){
+		userArray = [];
+	} else {
+		userArray = JSON.parse(userFileContent);;
+	}
+	return userArray
+}
+function generateId() {
+	let user = getAllUsers();
+	if(user.length == 0){
+		return 1;
+	}
+	let lastUser= user.pop();
+	return lastUser.id + 1;
+}
+function storeUser(userData) {
+	let user = getAllUsers();
+	user.push(userData);
+	fs.writeFileSync(userFilePath, JSON.stringify(user, null, ''));
+}
+
 
 const controller = {
 	login: (req, res) => {
@@ -8,6 +37,7 @@ const controller = {
 	register: (req, res) => {
 		return res.render('register');
 	},
+
 	save: (req, res) => {
 		const hasErrorGetMessage = (field, errors) => {
 			for (let oneError of errors) {
@@ -27,7 +57,14 @@ const controller = {
 				oldData: req.body
 			});
 		} else {
-			return res.send('<h1>Ok, pasó las validaciones</h1>');
+			let newUser = {
+				id: generateId(),
+				...req.body
+			}
+			// Guardo el producto en el JSON
+			storeUser(newUser);
+			// Redirección
+			res.redirect('/login');
 		}
 	},
 };

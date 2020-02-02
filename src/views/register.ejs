@@ -1,6 +1,13 @@
 <%- include('partials/head.ejs') %>
 <%- include('partials/header.ejs') %>
     <!-- BODY ACA -->
+    <% if (typeof errors !== 'undefined') { %>
+        <ul>
+            <% for(let oneError of errors) { %>
+            <li class="text-danger"> <%= oneError.msg %> </li>
+            <% } %>
+        </ul>
+        <% } %>
     <div class="regContenedor">
         <div class="row">
             <div class="col-sm-1 col-md-3 col-lg-2"></div>
@@ -168,6 +175,28 @@
                         </i>
                         </div>
                     </p>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><b>Imagen de perfil:</b></label>
+                            <div class="custom-file">
+                                <input 
+                                    type="file" 
+                                    name="avatar"
+                                    class="custom-file-input
+                                    <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                        <%= hasErrorGetMessage('avatar', errors) ? 'is-invalid' : null %> 
+                                    <% } %>
+                                    "
+                                >
+                                <label class="custom-file-label">Choose file...</label>
+                                <i class="invalid-feedback">
+                                    <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                    <%= hasErrorGetMessage('avatar', errors) ? hasErrorGetMessage('avatar', errors) : null %>
+                                    <% } %>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-12">
 							<button type="submit" class="btn btn-primary">Registrarse</button>
