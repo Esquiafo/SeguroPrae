@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path');
 const userController = require('../controllers/userController')
 
+const registerValidations = require('../middlewares/registerValidatorMiddleware');
+const upload = require('../middlewares/uploadMiddleware');
 
 
 router.get('/register', userController.register);
@@ -20,23 +20,9 @@ router.get('/login', userController.login);
 //     });
 //   });
 
-router.post('/register', function (req, res) {
-    res.send(req.body)
-  })
-  
-  let diskStorage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, path.join(__dirname, '../data/user.json'));
-	},
-	filename: function (req, file, cb) {
-		let finalName = Date.now() + path.extname(file.originalname);
-		cb(null, finalName);
-	}
-});
+router.post('/register', registerValidations, userController.save)
 
-let upload = multer({ storage: diskStorage })
 
 
 
 module.exports = router;
-module.exports = router

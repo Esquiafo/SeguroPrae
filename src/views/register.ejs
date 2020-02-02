@@ -8,23 +8,88 @@
                 <form action="" method="POST">
                     <p>
                         <div class="input-group">
-                            <input class="form-control input-sm" placeholder="Nombre Completo" name="usrName"
-                                id="usrName" type="text">
+                            <input 
+                            type="text" 
+                            id="usrName"
+                            placeholder="Ingrese su Nombre Completo"
+                            name="usrName" 
+                            class="form-control input-sm
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('usrName', errors) ? 'is-invalid' : null %> 
+                            <% } %>
+                            "
+                            value="<%= typeof oldData !== 'undefined' ? oldData.usrName : null %>"
+                        >
+                        <i class="invalid-feedback">
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('usrName', errors) ? hasErrorGetMessage('usrName', errors) : null %>
+                            <% } %>
+                        </i>
+
                         </div>
                     </p>
                     <p>
                     </p>
                     <div class="input-group">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input 
+                        type="text" 
+                        id="inputEmail"
+                        placeholder="Ingrese su eMail"
+                        name="email" 
+                        class="form-control input-sm
+                        <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                            <%= hasErrorGetMessage('email', errors) ? 'is-invalid' : null %> 
+                        <% } %>
+                        "
+                        value="<%= typeof oldData !== 'undefined' ? oldData.email : null %>"
+                    >
+                    <i class="invalid-feedback">
+                        <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                            <%= hasErrorGetMessage('email', errors) ? hasErrorGetMessage('email', errors) : null %>
+                        <% } %>
+                    </i>
                     </div>
                     <p>
                         <div class="input-group">
-                            <input type="email" class="form-control" id="emailConf" placeholder="Confirme su e-mail">
+                            <input 
+                            type="text" 
+                            id="inputEmail"
+                            placeholder="Reingrese su eMail" 
+                            name="email" 
+                            class="form-control input-sm
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('email', errors) ? 'is-invalid' : null %> 
+                            <% } %>
+                            "
+                            value="<%= typeof oldData !== 'undefined' ? oldData.email : null %>"
+                        >
+                        <i class="invalid-feedback">
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('email', errors) ? hasErrorGetMessage('email', errors) : null %>
+                            <% } %>
+                        </i>
                         </div>
                     </p>
                     <p>
                         <div class="input-group">
-                            <input type="number" class="form-control" id="foneNum" placeholder="Telefono de contacto">
+                            <input 
+                            type="text" 
+                            id="foneNum"
+                            placeholder="Ingrese su numero de telefono"
+                            name="number" 
+                            class="form-control input-sm
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('number', errors) ? 'is-invalid' : null %> 
+                            <% } %>
+                            "
+                            value="<%= typeof oldData !== 'undefined' ? oldData.number : null %>"
+                        >
+                        <i class="invalid-feedback">
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('number', errors) ? hasErrorGetMessage('number', errors) : null %>
+                            <% } %>
+                        </i>
+                
                         </div>
                     </p>
                     <p>
@@ -40,27 +105,73 @@
                     </p>
                     <p>
                         <div class="input-group">
-                            <input class="form-control input-sm" placeholder="Número de documento"
-                                name="NumeroDocumento" id="NumeroDocumento" type="text">
+                            <input 
+                            type="text" 
+                            placeholder="Ingrese su Numero de Identidad" 
+                            id="NumeroDocumento"
+                            name="NumeroDocumento" 
+                            class="form-control input-sm
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('NumeroDocumento', errors) ? 'is-invalid' : null %> 
+                            <% } %>
+                            "
+                            value="<%= typeof oldData !== 'undefined' ? oldData.NumeroDocumento : null %>"
+                        >
+                        <i class="invalid-feedback">
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('NumeroDocumento', errors) ? hasErrorGetMessage('NumeroDocumento', errors) : null %>
+                            <% } %>
+                        </i>
                         </div>
                     </p>
                     <p>
                         <div class="input-group">
-                            <input class="form-control input-sm" placeholder="Contraseña" name="password"
-                                id="password" type="password"  data-fv-field="password">
+                            <input 
+                            type="text" 
+                            placeholder="Ingrese su Contraseña" 
+                            data-fv-field="password"
+                            id="password"
+                            name="password" 
+                            class="form-control input-sm
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('password', errors) ? 'is-invalid' : null %> 
+                            <% } %>
+                            "
+                            value="<%= typeof oldData !== 'undefined' ? oldData.password : null %>"
+                        >
+                        <i class="invalid-feedback">
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('password', errors) ? hasErrorGetMessage('password', errors) : null %>
+                            <% } %>
+                        </i>
                         </div>
                     </p>
                     <p>
                         <div class="input-group">
-                            <input class="form-control input-sm" placeholder="Confime su contraseña" name="confPassword"
-                                id="confPassword" type="password"  data-fv-field="confPassword">
+                            <input 
+                            type="text"
+                            placeholder="Re ingrese su Contraseña" 
+                            data-fv-field="password"
+                            id="password"
+                            name="password" 
+                            class="form-control input-sm
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('password', errors) ? 'is-invalid' : null %> 
+                            <% } %>
+                            "
+                            value="<%= typeof oldData !== 'undefined' ? oldData.password : null %>"
+                        >
+                        <i class="invalid-feedback">
+                            <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                                <%= hasErrorGetMessage('password', errors) ? hasErrorGetMessage('password', errors) : null %>
+                            <% } %>
+                        </i>
                         </div>
                     </p>
                     <div class="form-group">
-                        <div class="col-xs-12 Mt10">
-                            <button type="submit" id="btnSubmit" class="btn btn-block btnSubmit"
-                                >REGISTRARSE</button>
-                        </div>
+                        <div class="col-12">
+							<button type="submit" class="btn btn-primary">Registrarse</button>
+						</div>
                     </div>
                     
                 </form>
@@ -68,5 +179,6 @@
             <div class="col-sm-1 col-md-3 col-lg-2"></div>
         </div>
     </div>
+    <br>
     <!-- FOOTER DESDE ACA -->
     <%- include('partials/footer') %>

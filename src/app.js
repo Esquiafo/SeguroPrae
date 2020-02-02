@@ -30,7 +30,7 @@ const productsRouter = require('./routes/productsRoutes');
 const userRouter = require('./routes/userRoutes');
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
-app.use('/user', userRouter);
+app.use('/', userRouter);
 
 
 
