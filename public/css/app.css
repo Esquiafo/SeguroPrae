@@ -184,6 +184,10 @@ label,
     display: flex;
     justify-content: flex-end;
 }
+.usercontainer{
+    display: flex;
+    align-items: center;
+}
 
 /* PRODUCT ADD */
 

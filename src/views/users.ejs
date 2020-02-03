@@ -14,26 +14,16 @@
 			<a href="/users/logout">Salir</a>
 		</li>
 	<% } else { %>
-
-			<div class="container">
-    			<div class="row">
-     			   <div class="col-xs-12">
-					<form href="/users/register">
-						<input type="submit" value="Register" />
-					</form>
-					</div>
-   					 </div>
+		<br>
+		<div class="container usercontainer">
+			<div class="row">
+			  <div class="col col-lg-6">
+				<a class="nav-link" href="/users/register"><button type="button" class="btn btn-outline-primary">Register</button></a></div>
+			  </div>
+			  <div class="col col-lg-6">
+				<a class="nav-link" href="/users/login"><button type="button" class="btn btn-outline-success">Login</button></a></div>
+			  </div>
 			</div>
-			<div class="container">
-    			<div class="row">
-     			   <div class="col-xs-12">
-					<form href="/users/login">
-						<input type="submit" value="Login" />
-					</form>
-					</div>
-   					 </div>
-			</div>
-		</li>
 	<% } %>
 </ul>
 <%- include('partials/footer') %>

@@ -19,15 +19,16 @@ let upload = multer({ storage: diskStorage })
 // ************ Middlewares ************
 const authMiddleware = require('../middlewares/authMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
+const registerValidations = require('../middlewares/registerValidatorMiddleware');
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
 
 /* GET to /users/register */
-router.get('/register', guestMiddleware,  usersController.registerForm);
+router.get('/register', guestMiddleware, usersController.registerForm);
 
 /* POST to /users/register */
-router.post('/register', upload.single('user_avatar'), usersController.storeUser);
+router.post('/register', upload.single('user_avatar'), registerValidations, usersController.storeUser);
 
 /* GET to /users/login */
 router.get('/login', guestMiddleware, usersController.loginForm);

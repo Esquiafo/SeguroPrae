@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const { validationResult } = require('express-validator'); 
 
 // Users File Path
 const usersFilePath = path.join(__dirname, '../data/users.json');
@@ -32,9 +33,9 @@ function storeUser (userData) {
 	fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 }
 
-function getUserByEmail (email) {
+function getUserByDni (dni) {
 	let allUsers = getAllUsers();
-	let userFind = allUsers.find(oneUser => oneUser.user_email == email);
+	let userFind = allUsers.find(oneUser => oneUser.user_dni == dni);
 	return userFind;
 }
 
@@ -54,15 +55,33 @@ const controller = {
 		}
 		// Guardo al usuario en el JSON
 		storeUser(newUserData);
-		// Redirección
-		res.redirect('/');
+		const hasErrorGetMessage = (field, errors) => {
+			for (let oneError of errors) {
+				if (oneError.param == field) {
+					return oneError.msg;
+				}
+			}
+			return false;
+		}
+		
+		let errorsResult = validationResult(req);
+
+		if ( !errorsResult.isEmpty() ) {
+			return res.render('users/registerForm', {
+				errors: errorsResult.array(),
+				hasErrorGetMessage,
+				oldData: req.body
+			});
+		} else {
+			return res.redirect('login');
+		}
 	},
 	loginForm: (req, res) => {
 		res.render('users/loginForm');
 	},
 	processLogin: (req, res) => {
-		// Busco al usuario por email
-		let userToLogin = getUserByEmail(req.body.user_email);
+		// Busco al usuario por dni
+		let userToLogin = getUserByDni(req.body.user_dni);
 
 		// Valido si existe el usuario
 		if(userToLogin != undefined) {

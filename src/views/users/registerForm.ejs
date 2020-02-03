@@ -4,11 +4,17 @@
 <body>
 	<h2>Regístrate</h2>
 
-
+    <% if (typeof errors !== 'undefined') { %>
+        <ul>
+            <% for(let oneError of errors) { %>
+            <li class="text-danger"> <%= oneError.msg %> </li>
+            <% } %>
+        </ul>
+        <% } %>
 
 	<form action="/users/register" method="POST" enctype="multipart/form-data">
 		<div>
-			<label>Nombre completo:</label>
+			<label>Nombre completo: </label>
 			<input type="text" name="user_name">
 		</div>
 		<div>
@@ -16,8 +22,35 @@
 			<input type="email" name="user_email">
 		</div>
 		<div>
-			<label>Contraseña:</label>
+			<label>Remail:</label>
+			<input type="email" name="user_reemail">
+		</div>
+		<div>
+			<label>Pass:</label>
 			<input type="password" name="user_password">
+		</div>
+				<div>
+			<label>Repass:</label>
+			<input type="password" name="user_repassword">
+		</div>
+		<div>
+			<label>Tel:</label>
+			<input type="number" name="user_number">
+		</div>
+		<p>
+			<div class="input-group">
+				<select class="form-control input-sm selectpicker show-menu-arrow" id="tipDoc" name="tipDoc"
+					title="Tipo de documento" data-fv-field="tipDoc" tabindex="-98">
+					<option value="">Tipo de Documento</option>
+					<option value="DU">DNI</option>
+					<option value="LC">LIBRETA CIVICA</option>
+					<option value="CL">CUIL</option>
+				</select>
+			</div>
+		</p>
+		<div>
+			<label>Numero de identidad:</label>
+			<input type="number" name="user_dni">
 		</div>
 		<div>
 			<label>Avatar:</label>

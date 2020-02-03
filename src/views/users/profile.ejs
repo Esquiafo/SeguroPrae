@@ -1,11 +1,16 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 <body>
+	<br>
 	<h2>Bienvenida/o  tu perfil</h2>
-
-	<p>Hola <%= user.user_name %></p>
-	<p>Email: <%= user.user_email %></p>
+	<br>
 	<img src="/images/avatars/<%= user.avatar %>" alt="">
+	<p>Hola, <%= user.user_name %></p>
+	<p>Email: <%= user.user_email %></p>
+	<p>Numero de contacto: <%= user.user_number %></p>
+	<p>Tipo de Documento: <%= user.user_tipDoc %></p>
+	<p>Numero del documento: <%= user.user_dni %></p>
+	
 	<br>
 	<a href="/users/logout">SALIR</a>
 </body>
