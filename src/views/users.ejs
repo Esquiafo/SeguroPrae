@@ -1,0 +1,39 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/header.ejs') %>
+
+<ul>
+	<% if(isLogged) { %>
+		<li>
+			<img src="/images/avatars/<%= user.avatar %>" width="50">
+			<br>
+			Hola <%= user.user_name; %>
+			<br>
+			<a href="/users/profile">Perfil</a>
+		</li>
+		<li>
+			<a href="/users/logout">Salir</a>
+		</li>
+	<% } else { %>
+
+			<div class="container">
+    			<div class="row">
+     			   <div class="col-xs-12">
+					<form href="/users/register">
+						<input type="submit" value="Register" />
+					</form>
+					</div>
+   					 </div>
+			</div>
+			<div class="container">
+    			<div class="row">
+     			   <div class="col-xs-12">
+					<form href="/users/login">
+						<input type="submit" value="Login" />
+					</form>
+					</div>
+   					 </div>
+			</div>
+		</li>
+	<% } %>
+</ul>
+<%- include('partials/footer') %>

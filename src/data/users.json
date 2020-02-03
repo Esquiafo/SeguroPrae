@@ -1,0 +1,37 @@
+[
+ {
+  "id": 1,
+  "avatar": "1579561164265.jpg",
+  "user_name": "Javi Herrera",
+  "user_email": "javi@dh.com",
+  "user_password": "$2b$11$/YBCW8Ebx1u2BO44Cy77c.C2bF9V14K36roZ4pKwIUe0HqVorhmES"
+ },
+ {
+  "id": 2,
+  "avatar": "1579561189922.jpg",
+  "user_name": "Kenyi West",
+  "user_email": "kenyi@dh.com",
+  "user_password": "$2b$11$zdz3sgwhM7MryW0X..iUl.KnBNWpPwEmzs0cY37uY6ce6/msvYubu"
+ },
+ {
+  "id": 3,
+  "avatar": "1580704157961.png",
+  "user_name": "asdqwe asd",
+  "user_email": "asdqwe@hotmail.com",
+  "user_password": "$2b$11$0MCKfVLfNq5vegTJFP0o4.Ug9tw05fXQ.SkrI1XghVgIWPyUGUj2i"
+ },
+ {
+  "id": 4,
+  "avatar": "1580735093175.jpg",
+  "user_name": "Leonardo Capone",
+  "user_email": "leocapone@hotmail.com",
+  "user_password": "$2b$11$3/ftaCje4e5wvr24Y2wbVuvT.r9CRbmg2weykl1sS4HGlt14zmrPi"
+ },
+ {
+  "id": 5,
+  "avatar": "1580740110618.jpg",
+  "user_name": "Agustin Capone",
+  "user_email": "agus@capone.com",
+  "user_password": "$2b$11$WmNMS2TEO8PGHh59vtgok.i3/45d.jmL0qndx.7Vj5ru0nBZ8s3G2"
+ }
+]

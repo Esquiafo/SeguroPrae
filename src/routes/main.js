@@ -6,6 +6,7 @@ const router = express.Router();
 const mainController = require('../controllers/mainController');
 
 /* GET - home page. */
-router.get('/', mainController.root);
+router.get('/', mainController.index);
 
+router.get('/users', mainController.users);
 module.exports = router;

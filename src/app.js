@@ -4,7 +4,9 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
-const methodOverride = require('method-override');
+const session = require('express-session');
+const localsMiddleware = require('./middlewares/localsMiddleware');
+const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -15,7 +17,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
-app.use(methodOverride('_method'));
+app.use(session({
+  secret: 'lo que sea',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(userCookieMiddleware);
+app.use(localsMiddleware);
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
@@ -26,11 +34,11 @@ app.set('views', './src/views'); // Seteo de la ubicación de la carpeta "views"
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main');
+const usersRouter = require('./routes/usersRoutes');
 const productsRouter = require('./routes/productsRoutes');
-const userRouter = require('./routes/userRoutes');
 app.use('/', mainRouter);
+app.use('/users', usersRouter);
 app.use('/products', productsRouter);
-app.use('/', userRouter);
 
 
 

@@ -6,10 +6,12 @@
     "start": "nodemon ./src/bin/www"
   },
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^2.6.2",
     "express": "^4.16.4",
+    "express-session": "^1.17.0",
     "express-validator": "^6.4.0",
     "fs": "0.0.1-security",
     "http-errors": "~1.6.3",
