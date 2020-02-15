@@ -1,8 +1,12 @@
-const fs = require('fs');
-const path = require('path');
+const db = require('../database/models/');
+const Products = db.products;
+const PrdCategories = db.prdCategories;
+
+//const fs = require('fs');
+//const path = require('path');
 
 // Users File Path
-const productsFilePath = path.join(__dirname, '../data/products.json');
+//const productsFilePath = path.join(__dirname, '../data/products.json');
 
 // Helper Functions
 function getAllProducts () {
@@ -35,26 +39,31 @@ function guardarProductos (products) {
 	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 }
 
-const controller = {
+module.exports = {
      
 	productCart: (req, res) => {
 		res.render('products/productCart');
 	},
+
 	productDetailsroboperdida: (req, res) => {
 		let productsData = getAllProducts();
 		res.render('products/productDetailsroboperdida', { productsData });
 	},
+
 	productDetailsvida: (req, res) => {
 		let productsData = getAllProducts();
 		res.render('products/productDetailsvida', { productsData });
 	},
+
 	productDetailsincendios: (req, res) => {
 		let productsData = getAllProducts();
 		res.render('products/productDetailsincendios', { productsData });
 	},
+
 	productAdd: (req, res) => {
 		res.render('products/productAdd');
-    },
+	},
+	
     storeProduct: (req, res) => {		
 		
 		let newProductData = {
@@ -67,11 +76,21 @@ const controller = {
 		// Redirección
 		res.redirect('/products/productAdd');
 	},
+	
+	/* PASADA */
 	productsAll: (req, res) => {
-		let productsData = getAllProducts();
-		res.render('products/allProducts', { productsData });
-
+		Products
+			.findAll()
+			.then(products => {
+				return res.render('products/allProducts', {
+					products
+				});
+			})
+			.catch(error => res.send(error));
+		// let productsData = getAllProducts();
+		// res.render('products/allProducts', { productsData });
 	},
+	
 	deleteProduct: (req, res) => {
 		let productsData = getAllProducts();
 		finalPrdData = productsData.filter(function(product){
@@ -89,6 +108,6 @@ const controller = {
 		res.render('products/productUpd', {updPrd: updPrd});
 	},
 	
-};
+}
 
-module.exports = controller
+ 
