@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
 
 	const usrCategory = sequelize.define(alias, columns);
 
-	category.associate = (models) => {
+	usrCategory.associate = (models) => {
 		// hasMany
 	}
 
-	return category;
+	return usrCategory;
 }
