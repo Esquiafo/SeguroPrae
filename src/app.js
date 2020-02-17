@@ -7,6 +7,7 @@ const path = require('path');
 const session = require('express-session');
 const localsMiddleware = require('./middlewares/localsMiddleware');
 const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
+const method = require('method-override');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -24,6 +25,7 @@ app.use(session({
 }));
 app.use(userCookieMiddleware);
 app.use(localsMiddleware);
+app.use(method('_m'));
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');

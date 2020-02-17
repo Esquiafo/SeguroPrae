@@ -15,19 +15,19 @@
         <br>
         <div class="col-sm-8 col-md-8">
           <br>
+          <b>Id:</b> <%= product.id %> <br>
           <b>Categoria:</b> <%= product.prdCategId %> <br>
           <b>Descripcion:</b> <%= product.description %> <br>
           <b>Precio:</b> $<%= product.price %> <br>
         <br>
           <form action="/products/deleteProduct/<%= product.id %>" method="POST">
-            <button>BORRAR</button>
+            <button type="submit">Borrar producto</button>
           </form>
           <br>
         </div>
         </div>
      
       <% }) %>
-
     
   </div>
 </div>

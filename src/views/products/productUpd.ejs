@@ -15,28 +15,28 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-8 formPrdAdd">
-           <h1>Editando producto <%= updPrd.prd_price %></h1>
-            <form class="was-validated" action="/products/productUpd?_method=PUT" method="POST" enctype="multipart/form-data">
+           <h6>Editando producto <%= updPrd.description %></h6>
+            <form class="was-validated" action="/products/productUpd/<%= updPrd.id %>" method="POST" enctype="multipart/form-data">
                 <div class="input-group formImp formImp1">
-                    <input class="form-control input-sm imp" type="text" name="prd_category" value="<%= updPrd.prd_category %>" 
-                        id="prd_category" >
+                    <input class="form-control input-sm imp" type="text" name="prdCategId" value="<%= updPrd.prdCategory.name %>" 
+                        id="prdCategId" >
                 </div>
                 
                 <div class="mb-10 formImp formImp2">
-                    <textarea class="form-control is-invalid imptArea" id="prd_description" name="prd_description"
-                    value="<%= updPrd.prd_description %>" required></textarea>
+                    <textarea class="form-control is-invalid imptArea" id="description" name="description"
+                    value="<%= updPrd.description %>" required></textarea>
                 </div>
                 <div class="input-group formImp formImp3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="prd_image" name="prd_image"
-                            aria-describedby="prdImg" value="<%= updPrd.prd_image %>">
-                        <label class="custom-file-label imp" for="prd_image"></label>
+                        <input type="file" class="custom-file-input" id="image" name="image"
+                            aria-describedby="prdImg" value="<%= updPrd.image %>">
+                        <label class="custom-file-label imp" for="image"></label>
                     </div>
                 </div>
                 
                 <div class="input-group formImp formImp4">
-                    <input class="form-control input-sm imp" name="prd_price" id="prd_price"
-                        type="number" value="<%= updPrd.prd_price %>">
+                    <input class="form-control input-sm imp" name="price" id="price"
+                        type="number" value="<%= updPrd.price %>">
                 </div>
                 <div class="form-group ">
                     <div class="col-sm-6">
