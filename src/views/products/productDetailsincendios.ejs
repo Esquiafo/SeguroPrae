@@ -1,62 +1,53 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
-    <!-- CAMBIAR DESDE ACA -->
-     <div class="container">
-            <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12 bloques">
-                            <p>Incendios</p>
-                                <div class="imagen">
-                                        <a href="" target="_blank"><img src="../images/fire.png" alt=""/></a>
-                                        </div>
-                                        <br>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit elementum eget congue, tristique sollicitudin enim eu nisi ultrices iaculis justo scelerisque, phasellus vestibulum metus rhoncus sapien a integer odio ligula. Senectus parturient maecenas conubia netus pharetra felis placerat tincidunt, tortor fusce cras ligula nostra cursus augue duis lacinia, nascetur semper a habitasse euismod inceptos vivamus. Sociosqu ante neque morbi pulvinar habitasse enim himenaeos, ultrices per orci molestie nisi fames dignissim praesent, lacus iaculis class cursus mollis eros.</p>
-                                </div>
-                                
-             </div>
-             <div class="container">
-              <div class="row">
-                <br>
-                <%  productsData.filter(function (el) { %>
-                  <%   return (el.prd_category === "INCENDIO"); %>
-                  <% }).map(function(el) { %>
-                    <br>
-                    <div class="col-sm-12 col-md-12 col-lg-12 prdDet">
-                            
-                    <div class="col-sm-4 col-md-4 imgcart">
-                      <img src="../images/prdImages/<%= el.prd_image %>" style="width: 200px;height: 200px;">
-                    </div>
-                    <br>
-                    <div class="col-sm-8 col-md-8">
-                      <br>
-                      <b>Categoria:</b>   <%=  el.prd_category %>  <br>
-                      <b>Descripcion:</b>   <%=  el.prd_description %>  <br>
-                      <b>Precio: $</b>   <%=  el.prd_price %>  <br> <br>
-                      <button>Agregar al carrito</button> 
-                    <br>
+<!-- CAMBIAR DESDE ACA -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 bloques">
+      <p>Incendios</p>
+      <div class="imagen">
+        <a href="" target="_blank"><img src="../images/fire.png" alt="" /></a>
+      </div>
+      <br>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit elementum eget congue, tristique sollicitudin enim eu
+        nisi ultrices iaculis justo scelerisque, phasellus vestibulum metus rhoncus sapien a integer odio ligula.
+        Senectus parturient maecenas conubia netus pharetra felis placerat tincidunt, tortor fusce cras ligula nostra
+        cursus augue duis lacinia, nascetur semper a habitasse euismod inceptos vivamus. Sociosqu ante neque morbi
+        pulvinar habitasse enim himenaeos, ultrices per orci molestie nisi fames dignissim praesent, lacus iaculis class
+        cursus mollis eros.</p>
+    </div>
 
-                      <br>
-                    </div>
-                    </div>
-                 
-                    <% }).sort(); %>
-            
-                
-              </div>
-            </div>
-             
-    </div> 
+  </div>
+  <div class="container">
+    <div class="row">
+      <br>
+      <%  products.filter(function (el) { %>
+      <%   return (el.prdCategId === 3); %>
+      <% }).map(function(el) { %>
+      <br>
+      <div class="col-sm-12 col-md-12 col-lg-12 prdDet">
 
-    
+        <div class="col-sm-4 col-md-4 imgcart">
+          <img src="../images/prdImages/<%= el.image %>" style="width: 200px;height: 200px;">
+        </div>
+        <br>
+        <div class="col-sm-8 col-md-8">
+          <br>
+          <b>Categoria:</b> <%=  el.prdCategId %> <br>
+          <b>Descripcion:</b> <%=  el.description %> <br>
+          <b>Precio: $</b> <%=  el.price %> <br> <br>
+          <button>Agregar al carrito</button>
+          <br>
 
-    
-       
+          <br>
+        </div>
+      </div>
 
+      <% }).sort(); %>
 
+    </div>
+  </div>
 
-
-                           
-    
-
-
-    <!-- HASTA ACA -->
-    <%- include('../partials/footer') %>
+</div>
+<!-- HASTA ACA -->
+<%- include('../partials/footer') %>

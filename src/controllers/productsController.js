@@ -2,12 +2,6 @@ const db = require('../database/models/');
 const Products = db.products;
 const PrdCategories = db.prdCategories;
 
-//const fs = require('fs');
-//const path = require('path');
-
-// Users File Path
-//const productsFilePath = path.join(__dirname, '../data/products.json');
-
 // Helper Functions
 function getAllProducts () {
 	let productsFileContent = fs.readFileSync(productsFilePath, {encoding:'utf-8'});
@@ -20,21 +14,6 @@ function getAllProducts () {
 	return productsArray;
 }
 
-function generateId () {
-	let product = getAllProducts();
-	if (product.length == 0) {
-		return 1;
-	}
-	let lastProd = product.pop();
-	return lastProd.id + 1;
-}
-
-function storeUser (productData) {
-	let products = getAllProducts();
-	products.push(productData);
-	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-}
-
 function guardarProductos (products) {
 	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 }
@@ -45,36 +24,74 @@ module.exports = {
 		res.render('products/productCart');
 	},
 
+	
+	// PASADA
 	productDetailsroboperdida: (req, res) => {
-		let productsData = getAllProducts();
-		res.render('products/productDetailsroboperdida', { productsData });
+		Products
+			.findAll()
+			.then(products => {
+				return res.render('products/productDetailsroboperdida', {
+					products
+				});
+			})
+			.catch(error => res.send(error));
+	
 	},
 
+	// PASADA
 	productDetailsvida: (req, res) => {
-		let productsData = getAllProducts();
-		res.render('products/productDetailsvida', { productsData });
+		
+		Products
+			.findAll()
+			.then(products => {
+				return res.render('products/productDetailsvida', {
+					products
+				});
+			})
+			.catch(error => res.send(error));
+			
 	},
 
+	// PASADA
 	productDetailsincendios: (req, res) => {
-		let productsData = getAllProducts();
-		res.render('products/productDetailsincendios', { productsData });
-	},
-
+		Products
+			.findAll()
+			.then(products => {
+				return res.render('products/productDetailsincendios', {
+					products
+				});
+			})
+			.catch(error => res.send(error));
+		
+		},
+	
+	// PASADO
 	productAdd: (req, res) => {
-		res.render('products/productAdd');
+		
+		let prdCategories = PrdCategories.findAll();
+
+		Promise
+			.all([prdCategories])
+			.then(results => {
+				res.render('products/productAdd', {
+					prdCategories: results[0]
+				});
+			})
+			.catch(error => res.send(error));
+
+		return;
+		
 	},
 	
+	// PASADA
     storeProduct: (req, res) => {		
-		
-		let newProductData = {
-			id: generateId(),
-			prd_image: req.file.filename,
-			...req.body
-		}
-		// Guardo el producto en el JSON
-		storeUser(newProductData);
-		// Redirección
-		res.redirect('/products/productAdd');
+		console.log(req.body);
+		Products
+			.create(req.body)
+			.then(product => {
+				return res.redirect('/products/productAdd');
+			})
+			.catch(error => res.send(error));
 	},
 	
 	/* PASADA */
@@ -87,8 +104,6 @@ module.exports = {
 				});
 			})
 			.catch(error => res.send(error));
-		// let productsData = getAllProducts();
-		// res.render('products/allProducts', { productsData });
 	},
 	
 	deleteProduct: (req, res) => {
@@ -99,6 +114,7 @@ module.exports = {
 		guardarProductos(finalPrdData);
 		res.redirect('/products/allProducts');
 	},
+
 	updProduct: (req, res) => {
 		let productsData = getAllProducts();
 		updPrd = productsData.filter(function(product){
