@@ -108,18 +108,15 @@ const controller = {
 			// Valido si existe el usuario
 			if (user != undefined) {
 				// Magia
-				console.log(req.body.password);
-				console.log( user.password);
-				
-				if (req.body.password === '123abc') {
+				if (req.body.password === user[0].password) {
 					// Borramos la contraseña del objeto usuario
-					delete user.password;
-					console.log(user.name);
+					delete user[0].password;
+			
 					// Pasamos al usuario a session
-					req.session.user = user;
+					req.session.user = user[0];
 
 					if (req.body.remember) {
-						res.cookie('user', user.id, { maxAge: 180000 });
+						res.cookie('user', user[0].id, { maxAge: 180000 });
 					}
 
 					// Redirección
