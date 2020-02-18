@@ -1,3 +1,25 @@
+SPRINT 5
+
+COMENZAR A HACER: 
+    Documentar
+    Planificar tareas 
+
+HACER MÁS: 
+    Obtener feedback antes de los vencimientos de los product owners (Se logró con el hackathon)
+    Reuniones grupales 
+    Dividir tareas 
+
+SEGUIR HACIENDO: 
+    Trabajo en equipo coordinado 
+    Comunicación intragrupal
+
+HACER MENOS: 
+
+PARAR DE HACER:
+    Aplazar el trabajo
+
+
+
 SPRINT 4
 
 COMENZAR A HACER: 

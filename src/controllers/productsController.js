@@ -2,21 +2,6 @@ const db = require('../database/models/');
 const Products = db.products;
 const PrdCategories = db.prdCategories;
 
-// Helper Functions
-function getAllProducts() {
-	let productsFileContent = fs.readFileSync(productsFilePath, { encoding: 'utf-8' });
-	let productsArray;
-	if (productsFileContent == '') {
-		productsArray = [];
-	} else {
-		productsArray = JSON.parse(productsFileContent);
-	}
-	return productsArray;
-}
-
-function guardarProductos(products) {
-	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-}
 
 module.exports = {
 
