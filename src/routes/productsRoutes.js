@@ -32,7 +32,7 @@ router.post('/incendios',carrito , productsController.carritoForm);
 router.get('/robo-perdida', productsController.productDetailsroboperdida);
 router.post('/robo-perdida',carrito ,  productsController.carritoForm);
 
-// /products/create (GET) Formulario de creación de productos
+// /products/create (GET) Formulario de creación de producto
 router.get('/productAdd', productsController.productAdd);
 
 // /products (POST) Acción de creación (a donde se envía el formulario)

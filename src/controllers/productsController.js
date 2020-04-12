@@ -132,7 +132,7 @@ module.exports = {
 		if (req.cookies.compra!=undefined) {
 			console.log('Pisando datos')
 			let contenidoCookie = JSON.parse(req.cookies.compra);  // Convierto el array en string para poder pushearle cosas
-			contenidoCookie.push(req.body.item); // Le metés a ese array que recuperaste el contenido nuevo
+			contenidoCookie.push(req.body.item); // Le meto a ese array que recuperaste el contenido nuevo
 			console.log(contenidoCookie)
 			res.cookie('compra', JSON.stringify(contenidoCookie), { maxAge: (1000 * 60) * 10 }); // Volvés a setear la cookie
 		} else {

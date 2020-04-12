@@ -6,7 +6,7 @@ function carrito(req, res, next) {
          // Crear la cookie
 		let array=[];
 		res.cookie('compra', JSON.stringify(array), { maxAge: (1000 * 60) * 5 });
-		console.log('La Cookie fue creada')
+		console.log('La Cookie fue creade')
 	}
     next();
 }
