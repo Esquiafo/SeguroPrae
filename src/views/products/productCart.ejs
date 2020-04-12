@@ -1,87 +1,41 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
     <!-- CAMBIAR DESDE ACA -->
-  <div class="container">
-    <div class="row">
-        <div class="col-lg-2 imgcart">
-  
-          <img src="../images/auto.jpg" style="width: 200px;height: 200px;">
-  
-        </div>
-        <div class="col-lg-4">
-  
-            <p class="asd">Seguro robo Autos</p>
-            <div class="dropdown asd">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Cantidad de Meses
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Mensual</a>
-                <a class="dropdown-item" href="#">Trimestral</a>
-                <a class="dropdown-item" href="#">Semestral</a>  
-                <a class="dropdown-item" href="#">Anual</a>
-              </div>
-            </div>
-  
-        </div>
+    <div class="container">
+      <div class="row">
+        <br>
+        <%let array= [2,3,4]%>
+        <%console.log(array)%>
+        <%console.log(DatosCookie)%>
+        <%    products.filter(function (el) {                      %>
+        <%    return DatosCookie.includes(el.id);             %>
+        <%    }).map(function(el) {                                        %>
 
+        <br>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+  
+          <div class="col-sm-4 col-md-4">
+            <img src="/images/prdImages/<%= el.image %>" alt="">
+          </div>
+          <br>
+          <div class="col-sm-8 col-md-8">
+            <br>
+            <b>Descripcion:</b> <%=  el.description %> <br>
+            <b>Precio: $</b> <%=  el.price %> <br> <br>
+            
+            <form id= 'compras' action="/products/incendios" method="POST" >
+              <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
+            </form>
+            <br>
+  
+            <br>
+          </div>
+        </div>
+  
+        <% }).sort(); %>
+  
+      </div>
     </div>
+    
   </div>
-  <div class="container">
-    <div class="row">
-        <div class="col-lg-2 imgcart">
-  
-          <img src="../images/moto.jpg" style="width: 200px;height: 200px;">
-  
-        </div>
-        <div class="col-lg-4">
-  
-            <p class="asd">Seguro robo Motos</p>
-            <div class="dropdown asd">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Cantidad de Meses
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Mensual</a>
-                <a class="dropdown-item" href="#">Trimestral</a>
-                <a class="dropdown-item" href="#">Semestral</a>  
-                <a class="dropdown-item" href="#">Anual</a>
-              </div>
-            </div>
-  
-        </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-        <div class="col-lg-2 imgcart">
-  
-          <img src="../images/camioneta.jpg" style="width: 200px;height: 200px;">
-  
-        </div>
-        <div class="col-lg-4">
-  
-          <p class="asd">Seguro robo Camiones</p>
-            <div class="dropdown asd">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Cantidad de Meses
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Mensual</a>
-                <a class="dropdown-item" href="#">Trimestral</a>
-                <a class="dropdown-item" href="#">Semestral</a>  
-                <a class="dropdown-item" href="#">Anual</a>
-              </div>
-            </div>
-  
-        </div>
-    </div>
-  </div>
-  <div class="col-lg-6 col-md-12 ayuda">
-    <p class="textcart">Detalle: Robo de Auto x 3 mes</p>
-    <p class="textcart">Precio: 99999</p>
-    <p class="textcart">IVA: 100000</p>
-    <p class="textcart">TOTAL: 199999</p>
-    <button>Aceptar</button>
-</div>
   <% - include('../partials/footer.ejs') %>

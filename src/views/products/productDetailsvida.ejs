@@ -35,7 +35,10 @@
         <br>
         <b>Descripcion:</b> <%=  el.description %> <br>
         <b>Precio: $</b> <%=  el.price %> <br><br>
-        <button>Agregar al carrito</button>
+        
+        <form action="/products/vida" method="POST" >
+          <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
+        </form>
         <br>
 
         <br>

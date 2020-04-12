@@ -19,13 +19,18 @@ const productsController = require('../controllers/productsController');
 
 // let upload = multer({ storage: diskStorage })
 
-router.get('/cart', productsController.productCart);
+const carrito = require('../middlewares/carrito');
+
+router.get('/carrito', productsController.carritoView);
 
 router.get('/vida', productsController.productDetailsvida);
+router.post('/vida',carrito ,productsController.carritoForm);
 
 router.get('/incendios', productsController.productDetailsincendios);
+router.post('/incendios',carrito , productsController.carritoForm);
 
 router.get('/robo-perdida', productsController.productDetailsroboperdida);
+router.post('/robo-perdida',carrito ,  productsController.carritoForm);
 
 // /products/create (GET) Formulario de creación de productos
 router.get('/productAdd', productsController.productAdd);

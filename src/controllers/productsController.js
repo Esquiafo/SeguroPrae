@@ -2,13 +2,14 @@ const db = require('../database/models/');
 const Products = db.products;
 const PrdCategories = db.prdCategories;
 
+var express = require('express')
+var cookieParser = require('cookie-parser')
+
+var app = express()
+app.use(cookieParser())
+
 
 module.exports = {
-
-	// Falta
-	productCart: (req, res) => {
-		res.render('products/productCart');
-	},
 
 	productDetailsroboperdida: (req, res) => {
 		Products
@@ -36,7 +37,6 @@ module.exports = {
 	},
 
 	productDetailsincendios: (req, res) => {
-
 		Products
 			.findAll()
 			.then(products => {
@@ -116,7 +116,8 @@ module.exports = {
 			.update({
 				prdCategId: req.body.prdCategId,
 				description: req.body.description,
-				price: req.body.price
+				price: req.body.price,
+				
 			},
 				{
 					where: {
@@ -127,7 +128,43 @@ module.exports = {
 
 			return res.redirect('/products/allProducts');
 	},
-
+	carritoForm: (req, res) =>  {
+		if (req.cookies.compra!=undefined) {
+			console.log('Pisando datos')
+			let contenidoCookie = JSON.parse(req.cookies.compra);  // Convierto el array en string para poder pushearle cosas
+			contenidoCookie.push(req.body.item); // Le metés a ese array que recuperaste el contenido nuevo
+			console.log(contenidoCookie)
+			res.cookie('compra', JSON.stringify(contenidoCookie), { maxAge: (1000 * 60) * 10 }); // Volvés a setear la cookie
+		} else {
+			console.log('Creando datos por primera vez')
+			let contenidoCookie =  [req.body.item]
+			res.cookie('compra', JSON.stringify(contenidoCookie), { maxAge: (1000 * 60) * 10 }); // Seteo la cookie para que nunca mas sea undefined
+		  }
+		  res.redirect('../');
+	},
+	carritoView: (req, res) => {
+		DatosCookie= req.cookies.compra
+		console.log(DatosCookie)
+		Products
+		
+			.findAll()
+			.then(products => {
+				return res.render('products/productCart', {
+					products,
+					DatosCookie
+				});
+				
+			})
+			
+			.catch(error => res.send(error));
+			}
 
 }
+
+			
+			
+		
+		 
+
+
 
