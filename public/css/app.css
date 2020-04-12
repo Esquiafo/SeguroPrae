@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet');
+
+* {
+    box-sizing: border-box; 
+  }
+.imgcart{
+    display: flex;
+
+}
+.imagenlogo{
+    width: 125px;
+    margin-top: 20px;
+}
+.ayuda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.asd{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin-left: 85px;
+}
+.body{
+    width: 100%;
+    height: 700px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    display: block;
+}
+.row{
+    width: 100%;
+    margin: 0;
+
+}
+div{
+    width: 100%;
+}
+.logo{
+    color: #173C65;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem; 
+    font-weight: 700;
+    
+}
+
+.contacto {
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.info{
+    width: 99%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header {
+    width: 100%;
+    height: 20vh;
+    background-color: whitesmoke;
+}
+
+.headerHome {
+    width: 100%;
+    height: 20vh;
+    background-color: whitesmoke;
+    background-image: url(/images/header.png);
+    background-size: cover;
+    align-items: center;  
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 20vh;
+    opacity: 0.4;
+    overflow: hidden;
+}
+
+.footer{
+    padding-top: 15px;
+    width: 100%;
+    background-color: #a4a4a4;
+    padding-bottom: 15px;
+    
+}
+
+/* CAMBIAR CSS DESDE ACA */
+.textoseguro{
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    
+}
+
+p{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15px;
+}
+
+.bloques{
+    display: flex;
+    padding-top: 15px;
+    align-items: center;
+    flex-flow: column;
+    
+}
+
+.imagen{
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-flow: column;
+    
+}
+
+.nav-link {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.5rem;
+    font-size: 12px;
+    color: #173C65;
+    display: flex;
+    
+}
+
+label,
+.pra,
+.nlfooter {
+    font-family: 'Lato', sans-serif;
+    color: #173C65;
+    font-size: 12px;
+    
+}
+
+/* LOGIN */
+
+.loginCont {
+    background-image: url('/images/login.png');
+    background-size: cover;
+    
+}
+
+.divIniTxt {
+    
+    padding: 15px;
+    border-bottom: solid 1px #173C65; 
+    color: #173C65;
+    
+}
+
+.btnSubmit {
+   background: darkgray;
+   color: white;    
+   
+}
+
+.divBtnSubmit {
+    padding: 15px;
+    border-bottom: solid 1px #173C65; 
+    
+}
+
+.reg {
+    color: #173C65;
+    font-size: 0.80rem;
+    
+}
+
+/* REGISTER */
+.divReg {
+    background-color: #FFFFFF;
+    width: 675px;
+    height: 100%;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px;
+    
+}
+.menu{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.usercontainer{
+    display: flex;
+    align-items: center;
+}
+
+/* PRODUCT ADD */
+
+.imgPrdAdd {
+    width: 50%;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-flow: column;   
+    justify-content: space-around;
+    align-content: center;
+}
+
+.formImp {
+    border: 1px solid #173C65;
+    border-radius: 5px;
+    align-content: center;
+}
+
+.formImp1 {
+    width: 369.31px;
+    height: 70px;
+    margin-top:30px;
+}
+
+.formImp2 {
+    width: 369px;
+    height: 262px;
+}
+.formImp3 {
+    width: 369px;
+    height: 165px;
+    
+}
+.formImp4 {
+    width: 369.31px;
+    height: 70px;
+    margin-bottom: 30px;
+}
+.imp {
+    border: 0px;
+}
+
+.imptArea {
+    height: 250px;
+    border: 0px;
+}
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    footer {
+      width: 100%;
+      font-family: BrandonGrotesque-Regular, "futura-pt-1", "futura-pt-2", Verdana, serif;
+      font-size: 16px;
+      line-height: 25px;
+      margin-bottom: 0px;
+      clear: both;
+      /*border: 1px blue solid;*/
+    }
+@media (min-width: 320px) {
+    .footer{
+        margin-top: 30px;
+    }
+    .menu{
+        padding-bottom: 300px;
+    }
+    .headerHome{
+        height: 300px;
+    }
+    .logo{
+        font-size: 1.2rem;
+    } 
+    label,
+    .pra,
+    .nlfooter,
+    .nav-link {
+        font-size: 0.7rem;        
+    }
+
+}
+
+.prdDet {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+    width: 100%;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 769px) {
+
+    .logo{
+        font-size: 1.7rem;
+        height: 100px;
+    } 
+    label,
+    .pra,
+    .nlfooter,
+    .nav-link {
+        font-size: 1.1rem;        
+    }
+    .headerHome{
+        height: 200px;
+    }
+}
+@media (min-width: 426px) {
+    .menu{
+       height: 250px;
+    }
+    .logo{
+        font-size: 35px;
+    } 
+    
+    label,
+    .pra,
+    .nlfooter,
+    .nav-link {
+        font-size: 16px;        
+    }
+
+}
+@media (min-width: 769px) {
+    .logo{
+        font-size: 40px;
+    } 
+    label,
+    .pra,
+    .nlfooter,
+    .nav-link {
+        font-size: 18px;        
+    }
+}
+}

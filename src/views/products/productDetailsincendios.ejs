@@ -1,0 +1,57 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+<!-- CAMBIAR DESDE ACA -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 bloques">
+      <p>Incendios</p>
+      <div class="imagen">
+        <a href="" target="_blank"><img src="../images/fire.png" alt="" /></a>
+      </div>
+      <br>
+    <div class="bloques">
+      <p >Lorem ipsum dolor sit amet consectetur adipiscing elit elementum eget congue, tristique sollicitudin enim eu
+        nisi ultrices iaculis justo scelerisque, phasellus vestibulum metus rhoncus sapien a integer odio ligula.
+        Senectus parturient maecenas conubia netus pharetra felis placerat tincidunt, tortor fusce cras ligula nostra
+        cursus augue duis lacinia, nascetur semper a habitasse euismod inceptos vivamus. Sociosqu ante neque morbi
+        pulvinar habitasse enim himenaeos, ultrices per orci molestie nisi fames dignissim praesent, lacus iaculis class
+        cursus mollis eros.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="container">
+    <div class="row">
+      <br>
+      <%  products.filter(function (el) { %>
+      <%   return (el.prdCategId === 3); %>
+      <% }).map(function(el) { %>
+      <br>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+
+        <div class="col-sm-4 col-md-4">
+          <img src="/images/prdImages/<%= el.image %>" alt="">
+        </div>
+        <br>
+        <div class="col-sm-8 col-md-8">
+          <br>
+          <b>Descripcion:</b> <%=  el.description %> <br>
+          <b>Precio: $</b> <%=  el.price %> <br> <br>
+          
+          <form id= 'compras' action="/products/incendios" method="POST" >
+            <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
+          </form>
+          <br>
+
+          <br>
+        </div>
+      </div>
+
+      <% }).sort(); %>
+
+    </div>
+  </div>
+  
+</div>
+<!-- HASTA ACA -->
+<%- include('../partials/footer') %>

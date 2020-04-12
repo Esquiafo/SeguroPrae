@@ -1,0 +1,41 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+    <!-- CAMBIAR DESDE ACA -->
+    <div class="container">
+      <div class="row">
+        <br>
+        <%let array= [2,3,4]%>
+        <%console.log(array)%>
+        <%console.log(DatosCookie)%>
+        <%    products.filter(function (el) {                      %>
+        <%    return array.includes(el.id);             %>
+        <%    }).map(function(el) {                                        %>
+
+        <br>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+  
+          <div class="col-sm-4 col-md-4">
+            <img src="/images/prdImages/<%= el.image %>" alt="">
+          </div>
+          <br>
+          <div class="col-sm-8 col-md-8">
+            <br>
+            <b>Descripcion:</b> <%=  el.description %> <br>
+            <b>Precio: $</b> <%=  el.price %> <br> <br>
+            
+            <form id= 'compras' action="/products/incendios" method="POST" >
+              <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
+            </form>
+            <br>
+  
+            <br>
+          </div>
+        </div>
+  
+        <% }).sort(); %>
+  
+      </div>
+    </div>
+    
+  </div>
+  <% - include('../partials/footer.ejs') %>

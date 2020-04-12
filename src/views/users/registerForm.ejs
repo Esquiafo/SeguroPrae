@@ -1,0 +1,69 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+
+<body>
+	<h2>Regístrate</h2>
+
+	<% if (typeof errors !== 'undefined') { %>
+	<ul>
+		<% for(let oneError of errors) { %>
+		<li class="text-danger"> <%= oneError.msg %> </li>
+		<% } %>
+	</ul>
+	<% } %>
+
+	<form action="/users/register" method="POST" >
+		<div>
+			<label>Nombre completo: </label>
+			<input class="input-group" type="text" name="name">
+		</div>
+		<div>
+			<label>Email:</label>
+			<input class="input-group" type="email" name="email">
+		</div>
+		<div>
+			<label>Remail:</label>
+			<input class="input-group" type="email" name="reemail">
+		</div>
+		<div>
+			<label>Pass:</label>
+			<input class="input-group" type="password" name="password">
+		</div>
+		<div>
+			<label>Repass:</label>
+			<input class="input-group" type="password" name="repassword">
+		</div>
+		<p>
+			<div class="input-group">
+				<select class="form-control input-sm selectpicker show-menu-arrow" id="docType" name="DocType"
+					title="Tipo de documento" data-fv-field="docType" tabindex="-98">
+					<option value="">Tipo de Documento</option>
+					<option value="DU">DNI</option>
+					<option value="LC">LIBRETA CIVICA</option>
+					<option value="CL">CUIL</option>
+				</select>
+			</div>
+		</p>
+		<div>
+			<label>Numero de Documento:</label>
+			<input class="input-group" type="number" name="docNum">
+		</div>
+		<div>
+			<label>Avatar:</label>
+			<input class="input-group" type="file" name="avatar">
+		</div>
+		</p>
+		<div>
+			<select class="input-group" name="usrCategId">
+				<option value="">Tipo de Usuario</option>
+				<% usrCategories.forEach(oneCategory => { %>
+				<option value="<%= oneCategory.id %>"><%= oneCategory.name %></option>
+				<% }) %>
+			</select>
+		</div>
+		</p>
+		</p>
+		<button type="submit">Registrarse</button>
+	</form>
+</body>
+<%- include('../partials/footer') %>
