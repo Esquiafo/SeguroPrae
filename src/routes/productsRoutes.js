@@ -20,8 +20,11 @@ const productsController = require('../controllers/productsController');
 // let upload = multer({ storage: diskStorage })
 
 const carrito = require('../middlewares/carrito');
+const carritoborrado = require('../middlewares/carritoborrado');
+const uploadMiddleware = require('../middlewares/uploadMiddleware');
 
-router.get('/carrito', productsController.carritoView);
+router.get('/carrito',productsController.carritoView);
+router.post('/carrito', carritoborrado,productsController.carritoBorrar);
 
 router.get('/vida', productsController.productDetailsvida);
 router.post('/vida',carrito ,productsController.carritoForm);

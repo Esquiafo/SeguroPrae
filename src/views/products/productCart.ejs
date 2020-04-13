@@ -6,11 +6,11 @@
         <br>
         <%let array= JSON.parse(DatosCookie) %>
         <%let array2 = array.map(i=>Number(i)) %>
-        <%console.log(array2)%>
         <%    products.filter(function (el) {                      %>
         <%    return array2.includes(el.id);             %>
         <%    }).map(function(el) {             %>                           %>
 
+          <%// console.log(CookieBorrada)%>
         <br>
         <div class="col-sm-12 col-md-12 col-lg-12">
   
@@ -25,6 +25,9 @@
             
             <form id= 'compras' action="/products/incendios" method="POST" >
               <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
+            </form>
+            <form action="/products/carrito" method="POST">
+              <button name="borrado" value="<%=  el.id %>">Borrar producto</button>
             </form>
             <br>
   

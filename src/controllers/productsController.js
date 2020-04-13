@@ -66,11 +66,12 @@ module.exports = {
 	},
 
 	storeProduct: (req, res) => {
-		console.log(req.body);
+		console.log('store product',req.body);
 		Products
 			.create(req.body)
-			.then(product => {
+			.then(products => {
 				return res.redirect('/products/productAdd');
+				
 			})
 			.catch(error => res.send(error));
 	},
@@ -143,21 +144,33 @@ module.exports = {
 		  res.redirect('../');
 	},
 	carritoView: (req, res) => {
-		DatosCookie= req.cookies.compra
-		console.log(DatosCookie)
+		DatosCookie=req.cookies.compra
 		Products
 		
 			.findAll()
 			.then(products => {
 				return res.render('products/productCart', {
 					products,
-					DatosCookie
+					DatosCookie,
 				});
 				
 			})
 			
 			.catch(error => res.send(error));
-			}
+		},
+	carritoBorrar: (req,res) => {
+		Products
+
+		.findAll()
+		.then(products => {
+			return res.render('products/productCart',{
+				products,
+				DatosCookie
+			})
+		})
+		.catch(error => res.send(error));
+		
+	}
 
 }
 

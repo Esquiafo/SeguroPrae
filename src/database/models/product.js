@@ -1,24 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-	let alias = 'products';
+ const products = sequelize.define('products',{
+	id: {
+		type: DataTypes.INTEGER,
+		primaryKey: true,
+		allowNull: false,
+		autoIncrement: true,
+	},
+	description: DataTypes.STRING,
+	price: DataTypes.INTEGER,
+	image: DataTypes.STRING,
+	prdCategId: DataTypes.INTEGER
+ })
 
-	let columns = {
-		id: {
-			type: DataTypes.INTEGER,
-			primaryKey: true,
-			allowNull: false,
-			autoIncrement: true,
-		},
-		description: DataTypes.STRING,
-		price: DataTypes.INTEGER,
-		image: DataTypes.STRING,
-		prdCategId: DataTypes.INTEGER
-	};
-
-	const product = sequelize.define(alias, columns);
-
-	product.associate = (models) => {
+	products.associate = (models) => {
 		// belongsTo 
-		product.belongsTo(models.prdCategories, {
+		products.belongsTo(models.prdCategories, {
 			as: 'prdCategory',
 			foreignKey: 'prdCategId'
 		});
@@ -29,5 +25,5 @@ module.exports = (sequelize, DataTypes) => {
 	//	return Number(this.price).toFixed();
 	// }
  
-	return product;
+	return products;
 }
