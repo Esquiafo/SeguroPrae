@@ -5,22 +5,11 @@ const multer = require('multer');
 const path = require('path');
 
 
-let diskStorage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, path.join(__dirname, '../../public/images/avatars'));
-	},
-	filename: function (req, file, cb) {
-		let finalName = Date.now() + path.extname(file.originalname);
-		cb(null, finalName);
-	}
-});
-
-let upload = multer({ storage: diskStorage })
-
 // ************ Middlewares ************
 const authMiddleware = require('../middlewares/authMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
-const registerValidations = require('../middlewares/registerValidatorMiddleware');
+const registerMiddleware = require('../middlewares/registerValidatorMiddleware');
+const upload = require('../middlewares/upload');
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
@@ -30,8 +19,8 @@ const usersController = require('../controllers/usersController');
 router.get('/register', usersController.registerForm);
 
 /* POST to /users/register */
-// router.post('/register', registerValidations, usersController.storeUser);
-router.post('/register', usersController.storeUser);
+//router.post('/register',registerMiddleware, upload.single('avatar'), usersController.storeUser);
+router.post('/register', upload.single('avatar'), usersController.storeUser);
 
 /* GET to /users/login */
 router.get('/login', usersController.loginForm);
@@ -41,7 +30,6 @@ router.post('/login',guestMiddleware, usersController.processLogin);
 
 /* GET to /users/profile */
 router.get('/profile', authMiddleware, usersController.profile);
-//router.get('/profile', usersController.profile);
 
 /* GET to /users/logout */
 router.get('/logout', usersController.logout);

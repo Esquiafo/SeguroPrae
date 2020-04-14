@@ -20,9 +20,20 @@
           <br>
           <div class="col-sm-8 col-md-8">
             <br>
+            <img src="/images/photos/<%= el.image %>" alt=""><br>
             <b>Descripcíon:</b> <%=  el.description %> <br>
-            <b>Precio: $</b> <%=  el.price %> <br> <br>
+
+            <b>Precio: $</b> <%=  el.price%> <br> <br>
             
+            <div class="input-group">
+              <select class="form-control input-sm selectpicker show-menu-arrow" id="meses" name="meses"
+                title="Cantidad de Meses" data-fv-field="meses" tabindex="0">
+                <option value="1">1 Mes</option>
+                <option value="3">3 Meses</option>
+                <option value="6">6 Meses</option>
+                <option value="12">12 Meses</option>
+              </select>
+            </div>
             <form id= 'compras' action="/products/incendios" method="POST" >
               <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
             </form>

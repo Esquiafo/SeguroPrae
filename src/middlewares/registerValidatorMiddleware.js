@@ -3,20 +3,20 @@ const { check } = require('express-validator');
 
 module.exports = [
 	// validando campo nombre
-	check('user_name', 'El nombre es obligatorio').notEmpty(),
+	check('name', 'El nombre es obligatorio').notEmpty(),
 
 	// validando campo email
-	check('user_email')
+	check('email')
 		.notEmpty().withMessage('El email es obligatorio').bail()
 		.isEmail().withMessage('Escribí un email válido'),
 
 	// validando campo password
-	check('user_password')
+	check('password')
 		.notEmpty().withMessage('Escribí una contraseña').bail()
 		.isLength({ min: 5 }).withMessage('La contraseña debe tener más de 5 letras'),
 	
 		// validando campo avatar
-	check('user_avatar')
+	check('avatar')
 		.custom((value, { req }) => {
 			let acceptedExtensions = ['.jpg', '.jpeg', '.png'];
 			if (typeof req.file == 'undefined') {
