@@ -66,9 +66,12 @@ module.exports = {
 	},
 
 	storeProduct: (req, res) => {
-		console.log('store product',req.body);
+		
 		Products
-			.create(req.body)
+			.create({
+				image: req.file.filename,
+				...req.body}
+				)
 			.then(products => {
 				return res.redirect('/products/productAdd');
 				
