@@ -6,6 +6,7 @@ const controller = {
 	users: (req, res) => {
 		res.render('users');
 	},
+	
 
 };
 

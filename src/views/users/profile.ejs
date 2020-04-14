@@ -1,16 +1,34 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
 <body>
-	<br>
-	<h2>Bienvenida/o  tu perfil <%= user.name %></h2>
-	<br>
-	<img src="/images/photos/<%= user.avatar %>" alt="">
-	<p>Hola, <%= user.name %></p>
-	<p>Email: <%= user.email %></p>
-	<p>Tipo de Documento: <%= user.docType %></p>
-	<p>Numero del documento: <%= user.docNum %></p>
+	<!------ Include the above in your HEAD tag ---------->
 	
-	<br>
+	<div class="container">
+	  <div class="row">
+		<div class="bloques">
+			<img src="/images/photos/<%= user.avatar %>" alt="">
+		</div>
+		<div class="span4">
+		  <blockquote>
+			<small><cite title="Source Title">Bienvenida/o  tu perfil <%= user.name %>  <i class="icon-map-marker"></i></cite></small>
+		  </blockquote>
+		  <p>
+			<i class="icon-envelope"></i> Email: <%= user.email %> 
+
+		  </p>
+		  <p>
+			
+			<i class="icon-globe"></i> Tipo de Documento: <%= user.docType %> 
+
+		  </p>
+		  <p>
+			
+			<i class="icon-gift"></i> Numero del documento: <%= user.docNum %>
+		  </p>
+		</div>
+	 
+	
+	  </div>
+	</div>
 	<a href="/users/logout">SALIR</a>
 </body>
-<%- include('../partials/footer.ejs') %>
