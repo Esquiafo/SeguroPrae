@@ -8,7 +8,7 @@
 
 }
 .imagenlogo{
-    width: 125px;
+    width: 80px;
     margin-top: 20px;
 }
 .ayuda{
@@ -100,21 +100,20 @@ div{
     
 }
 
-p{
+p {
     display: flex;
     flex-wrap: wrap;
     margin-left: 15px;
 }
 
-.bloques{
+.bloques {
     display: flex;
     padding-top: 15px;
     align-items: center;
-    flex-flow: column;
-    
+    flex-flow: column; 
 }
 
-.imagen{
+.imagen {
     margin-top: 25px;
     display: flex;
     flex-wrap: wrap;
@@ -223,16 +222,19 @@ label,
     width: 369px;
     height: 262px;
 }
+
 .formImp3 {
     width: 369px;
     height: 165px;
     
 }
+
 .formImp4 {
     width: 369.31px;
     height: 70px;
     margin-bottom: 30px;
 }
+
 .imp {
     border: 0px;
 }
@@ -240,37 +242,6 @@ label,
 .imptArea {
     height: 250px;
     border: 0px;
-}
-@media screen and (min-width: 769px) and (max-width: 1200px) {
-    footer {
-      width: 100%;
-      font-family: BrandonGrotesque-Regular, "futura-pt-1", "futura-pt-2", Verdana, serif;
-      font-size: 16px;
-      line-height: 25px;
-      margin-bottom: 0px;
-      clear: both;
-      /*border: 1px blue solid;*/
-    }
-@media (min-width: 320px) {
-    .footer{
-        margin-top: 30px;
-    }
-    .menu{
-        padding-bottom: 300px;
-    }
-    .headerHome{
-        height: 300px;
-    }
-    .logo{
-        font-size: 1.2rem;
-    } 
-    label,
-    .pra,
-    .nlfooter,
-    .nav-link {
-        font-size: 0.7rem;        
-    }
-
 }
 
 .prdDet {
@@ -281,7 +252,8 @@ label,
     overflow: hidden;
 }
 
-@media only screen and (min-width: 769px) {
+
+@media only screen and (min-width: 768px) {
 
     .logo{
         font-size: 1.7rem;
@@ -293,35 +265,102 @@ label,
     .nav-link {
         font-size: 1.1rem;        
     }
+    .menu,
     .headerHome{
         height: 200px;
     }
-}
-@media (min-width: 426px) {
-    .menu{
-       height: 250px;
-    }
-    .logo{
-        font-size: 35px;
-    } 
     
+    .footer {
+        height: 200px;
+    }
+    .imagenlogo{
+        width: 140px;
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    .logo{
+        font-size: 1.7rem;
+        height: 250px;
+    } 
     label,
     .pra,
     .nlfooter,
     .nav-link {
-        font-size: 16px;        
+        font-size: 14px;        
+    }
+    
+    .menu,
+    .headerHome{
+        height: 200px;
+    }
+    
+    .footer {
+        height: 200px;
+    }
+    .imagenlogo{
+        width: 140px;
+        margin-top: 10px;
+    }
+    footer {
+      width: 100%;
+      font-family: BrandonGrotesque-Regular, "futura-pt-1", "futura-pt-2", Verdana, serif;
+      font-size: 16px;
+      line-height: 25px;
+      margin-bottom: 0px;
+      clear: both;
     }
 
+
+
+
+/*
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+    font-family: 'Lato', sans-serif;
+  }
 }
-@media (min-width: 769px) {
-    .logo{
-        font-size: 40px;
-    } 
-    label,
-    .pra,
-    .nlfooter,
-    .nav-link {
-        font-size: 18px;        
+
+
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+----------------------------------------------
+    @media (min-width: 320px) {
+        .footer{
+            margin-top: 30px;
+        }
+        .menu{
+            padding-bottom: 300px;
+        }
+        .headerHome{
+            height: 300px;
+        }
+        .logo{
+            font-size: 1.2rem;
+        } 
+        label,
+        .pra,
+        .nlfooter,
+        .nav-link {
+            font-size: 0.7rem;        
+        }
     }
-}
-}
+    }
+    */
+

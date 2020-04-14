@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-8 formPrdAdd">
-            <form class="was-validated" action="/products/productAdd" method="POST" >
+            <form class="was-validated" action="/products/productAdd" method="POST" enctype="multipart/form-data">
                 <div >
                     <select class="input-group formImp formImp1" name="prdCategId" >
                         <option value="" >Categoria a asegurar</option>
@@ -34,9 +34,10 @@
                 </div>
                 <div class="input-group formImp formImp3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="image" name="image"
-                            aria-describedby="prdImg">
+                        <input type="file" class="custom-file-input" name='image'>
                         <label class="custom-file-label imp" for="image">Elija una imagen de referencia</label>
+                        
+                        
                     </div>
                 </div>
                 <div class="input-group formImp formImp4">

@@ -1,27 +1,14 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
-// const multer = require('multer');
-// const path = require('path');
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 
-// let diskStorage = multer.diskStorage({
-//	destination: function (req, file, cb) {
-//		cb(null, path.join(__dirname, '../../public/images/prdImages'));
-//	},
-//	filename: function (req, file, cb) {
-//		let finalName = Date.now() + path.extname(file.originalname);
-//		cb(null, finalName);
-//	}
-// });
-
-// let upload = multer({ storage: diskStorage })
 
 const carrito = require('../middlewares/carrito');
 const carritoborrado = require('../middlewares/carritoborrado');
-const uploadMiddleware = require('../middlewares/uploadMiddleware');
+const upload = require('../middlewares/upload');
 
 router.get('/carrito',productsController.carritoView);
 router.post('/carrito', carritoborrado,productsController.carritoBorrar);
@@ -39,7 +26,7 @@ router.post('/robo-perdida',carrito ,  productsController.carritoForm);
 router.get('/productAdd', productsController.productAdd);
 
 // /products (POST) Acción de creación (a donde se envía el formulario)
-router.post('/productAdd',productsController.storeProduct);
+router.post('/productAdd',upload.single('image'),productsController.storeProduct);
 
 // /products/:id (DELETE) Acción de borrado
 router.get('/allProducts', productsController.productsAll);
