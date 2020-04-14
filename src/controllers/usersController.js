@@ -31,9 +31,12 @@ const controller = {
 		console.log(req.body.password)
 		req.body.password = bcrypt.hashSync(req.body.password, 11);
 		console.log(req.body.password)
-		console.log(req.body)
+		console.log(req.file)
 
-		Users.create(req.body)
+		Users			
+		.create({
+			avatar: req.file.filename,
+			...req.body})
 			.then(user => {
 				res.redirect('/login');
 			})

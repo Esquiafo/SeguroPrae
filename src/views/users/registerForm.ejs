@@ -12,7 +12,7 @@
 	</ul>
 	<% } %>
 
-	<form action="/users/register" method="POST" >
+	<form action="/users/register" method="POST" enctype="multipart/form-data">
 		<div>
 			<label>Nombre completo: </label>
 			<input class="input-group" type="text" name="name">
@@ -47,9 +47,9 @@
 			<label>Numero de Documento:</label>
 			<input class="input-group" type="number" name="docNum">
 		</div>
-		<div>
-			<label>Avatar:</label>
-			<input class="input-group" type="file" name="avatar">
+		<div class="custom-file">
+			<input type="file" class="custom-file-input" name='avatar'>
+			<label class="custom-file-label imp" for="avatar">Elija una imagen de referencia</label>
 		</div>
 		<%%>
 
