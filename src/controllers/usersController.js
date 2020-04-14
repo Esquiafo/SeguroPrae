@@ -68,7 +68,7 @@ const controller = {
 	processLogin:(req, res) => {
         
 		Users
-		.findAll({where: {docNum: req.body.docNum}})
+		.findAll({where: {docNum: req.body.docNum}}) //Busca en la DB usuarios con el mismo valor
 		.then(users => {
 	  let usuario = users[0].dataValues;
 	if (usuario != undefined){
@@ -81,11 +81,11 @@ const controller = {
 			
 			req.session.user = usuario;
 			
-			if (req.body.remember) {
+			if (req.body.remember='on') {
 				
 				console.log(req.body.remember)
 				
-				res.cookie('user', bcrypt.hashSync(req.body.id.toString(), 12), { maxAge: 9999999});
+				res.cookie('usuario', bcrypt.hashSync(req.body.docNum, 11), { maxAge: 9999999});
 			}
 			
 			 res.redirect('/users/profile');
@@ -98,7 +98,7 @@ const controller = {
 	}
 
 })
-.catch(error => res.send(error));
+
 	},
 
 	profile: (req, res) => {
@@ -116,7 +116,7 @@ const controller = {
 		// Destruimos la session
 		req.session.destroy();
 		// Pisar la cookie
-		res.cookie('user', null, { maxAge: -1 });
+		res.cookie('usuario', null, { maxAge: -1 });
 		// Redirección
 		return res.redirect('/users/login');
 	}

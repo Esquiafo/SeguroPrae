@@ -56,7 +56,7 @@
 		</p>
 		<div>
 			<select class="input-group" name="usrCategId">
-				<option value="">Tipo de Usuario</option>
+				<label>Tipo de Usuario</label>
 				<% usrCategories.forEach(usrCategId => { %>
 				<option value="<%= usrCategId.id %>"><%= usrCategId.name %></option>
 				<% }) %>
