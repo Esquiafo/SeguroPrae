@@ -25,9 +25,10 @@ module.exports = [
 				let fileExtension = path.extname(req.file.originalname);
 				let extensionIsOk = acceptedExtensions.includes(fileExtension);
 				if (!extensionIsOk) {
-					throw new Error('Los formatos válidos son JPG, JPEG y PNG');
+					throw new Error('Los formatos válidos: son JPG, JPEG y PNG');
 				}
 			}
 			return true;
-		})
+		}),
+	check('usrCategId', 'El nombre es obligatorio').notEmpty(),
 ];

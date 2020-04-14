@@ -34,10 +34,10 @@ router.get('/register', usersController.registerForm);
 router.post('/register', usersController.storeUser);
 
 /* GET to /users/login */
-router.get('/login', guestMiddleware, usersController.loginForm);
+router.get('/login', usersController.loginForm);
 
 /* POST to /users/login */
-router.post('/login', usersController.processLogin);
+router.post('/login',guestMiddleware, usersController.processLogin);
 
 /* GET to /users/profile */
 router.get('/profile', authMiddleware, usersController.profile);

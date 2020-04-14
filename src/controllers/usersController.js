@@ -2,46 +2,10 @@ const db = require('../database/models');
 const Users = db.users;
 const UsrCategories = db.usrCategories;
 //
-const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 
-// Users File Path
-const usersFilePath = path.join(__dirname, '../data/users.json');
-
-// Helper Functions
-function getAllUsers() {
-	let usersFileContent = fs.readFileSync(usersFilePath, 'utf-8');
-	let usersArray;
-	if (usersFileContent == '') {
-		usersArray = [];
-	} else {
-		usersArray = JSON.parse(usersFileContent);
-	}
-	return usersArray;
-}
-
-function generateId() {
-	let users = getAllUsers();
-	if (users.length == 0) {
-		return 1;
-	}
-	let lastUser = users.pop();
-	return lastUser.id + 1;
-}
-
-function storeUser(userData) {
-	let users = getAllUsers();
-	users.push(userData);
-	fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
-}
-
-function getUserByDni(dni) {
-	let allUsers = getAllUsers();
-	let userFind = allUsers.find(oneUser => oneUser.user_dni == dni);
-	return userFind;
-}
 
 
 const controller = {
@@ -64,8 +28,12 @@ const controller = {
 
 	storeUser: (req, res) => {
 		// Hasheo la contraseña
-		// req.body.password = bcrypt.hashSync(req.body.password, 11);
-		db.users.create(req.body)
+		console.log(req.body.password)
+		req.body.password = bcrypt.hashSync(req.body.password, 11);
+		console.log(req.body.password)
+		console.log(req.body)
+
+		Users.create(req.body)
 			.then(user => {
 				res.redirect('/login');
 			})
@@ -97,44 +65,51 @@ const controller = {
 		res.render('users/loginForm');
 	},
 
-	processLogin: (req, res) => {
-		// Busco al usuario por dni
-		Users.findAll({
-			where: {
-				docNum: req.body.docNum
-			}
-		})
-		.then(user => {
-			// Valido si existe el usuario
-			if (user != undefined) {
-				// Magia
-				if (req.body.password === user[0].password) {
-					// Borramos la contraseña del objeto usuario
-					delete user[0].password;
+	processLogin:(req, res) => {
+        
+		Users
+		.findAll({where: {docNum: req.body.docNum}})
+		.then(users => {
+	  let usuario = users[0].dataValues;
+	if (usuario != undefined){
+
+	
+	let conectado = bcrypt.compareSync(req.body.password , usuario.password);
+	
+	
+		if (conectado) {
 			
-					// Pasamos al usuario a session
-					req.session.user = user[0];
-
-					if (req.body.remember) {
-						res.cookie('user', user[0].id, { maxAge: 180000 });
-					}
-
-					// Redirección
-					return res.redirect('/users/profile');
-				} else {
-					res.send('Datos incorrectos');
-				}
-			} else {
-				res.send('El usuario no existe');
+			req.session.user = usuario;
+			
+			if (req.body.remember) {
+				
+				console.log(req.body.remember)
+				
+				res.cookie('user', bcrypt.hashSync(req.body.id.toString(), 12), { maxAge: 9999999});
 			}
-		});
+			
+			 res.redirect('/users/profile');
+		}else{
 
+			res.send('Datos incorrectos');
+		}
+	}else{
+		res.send('El usuario no existe');
+	}
+
+})
+.catch(error => res.send(error));
 	},
 
 	profile: (req, res) => {
-		res.render('users/profile', {
-			user: req.session.user
-		});
+		Users
+			.findAll()
+			.then(users => {
+				return res.render('users/profile', {
+					users
+				});
+			})
+			.catch(error => res.send(error));
 	},
 
 	logout: (req, res) => {

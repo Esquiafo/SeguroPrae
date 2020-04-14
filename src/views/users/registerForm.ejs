@@ -35,9 +35,8 @@
 		</div>
 		<p>
 			<div class="input-group">
-				<select class="form-control input-sm selectpicker show-menu-arrow" id="docType" name="DocType"
-					title="Tipo de documento" data-fv-field="docType" tabindex="-98">
-					<option value="">Tipo de Documento</option>
+				<select class="form-control input-sm selectpicker show-menu-arrow" id="docType" name="docType"
+					title="Tipo de documento" data-fv-field="docType" tabindex="0">
 					<option value="DU">DNI</option>
 					<option value="LC">LIBRETA CIVICA</option>
 					<option value="CL">CUIL</option>
@@ -52,13 +51,16 @@
 			<label>Avatar:</label>
 			<input class="input-group" type="file" name="avatar">
 		</div>
+		<%%>
+
 		</p>
 		<div>
 			<select class="input-group" name="usrCategId">
 				<option value="">Tipo de Usuario</option>
-				<% usrCategories.forEach(oneCategory => { %>
-				<option value="<%= oneCategory.id %>"><%= oneCategory.name %></option>
+				<% usrCategories.forEach(usrCategId => { %>
+				<option value="<%= usrCategId.id %>"><%= usrCategId.name %></option>
 				<% }) %>
+
 			</select>
 		</div>
 		</p>
