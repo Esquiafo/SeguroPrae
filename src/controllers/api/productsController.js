@@ -15,7 +15,7 @@ module.exports = {
 
         Products
             .findAndCountAll({
-                attributes: ["id", "description", "price"],
+                attributes: ["id", "description", "price",'image'],
                 include: [{ 
                     association: 'prdCategory',
                     attributes: ["id", "name"]
@@ -35,6 +35,7 @@ module.exports = {
                 let productList = products.rows.map( oneProduct => {
                     return oneProduct = {
                         id: oneProduct.id,
+                        image: oneProduct.image,
                         description: oneProduct.description,
                         price: oneProduct.price,
                         category: oneProduct.prdCategId,

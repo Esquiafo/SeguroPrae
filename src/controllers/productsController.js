@@ -147,6 +147,10 @@ module.exports = {
 		  res.redirect('../');
 	},
 	carritoView: (req, res) => {
+		// let errorView=res.status(500)
+		// if (errorView===errorView){
+		// 	res.status('El carrito esta vacio, metele cosas pa, para que queres comprar si sabes que no hay nada, vos vas al super y vas a la caja con el chango vacio? No, bueno aca tampoco');
+		// }
 		DatosCookie=req.cookies.compra
 		Products
 		

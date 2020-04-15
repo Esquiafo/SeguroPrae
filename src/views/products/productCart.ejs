@@ -1,55 +1,115 @@
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
     <!-- CAMBIAR DESDE ACA -->
-    <div class="container">
-      <div class="row">
-        <br>
-        <%let array= JSON.parse(DatosCookie) %>
-        <%let array2 = array.map(i=>Number(i)) %>
-        <%    products.filter(function (el) {                      %>
-        <%    return array2.includes(el.id);             %>
-        <%    }).map(function(el) {             %>                           %>
-
-          <%// console.log(CookieBorrada)%>
-        <br>
-        <div class="col-sm-12 col-md-12 col-lg-12">
+    <body>
+      <div class="container">
   
-          <div class="col-sm-4 col-md-4">
-            <img src="/images/prdImages/<%= el.image %>" alt="">
-          </div>
+        <div class="row">
           <br>
-          <div class="col-sm-8 col-md-8">
-            <br>
-            <img src="/images/photos/<%= el.image %>" alt=""><br>
-            <b>Descripcíon:</b> <%=  el.description %> <br>
-
-            <b>Precio: $</b> <%=  el.price%> <br> <br>
-            
-            <div class="input-group">
-              <select class="form-control input-sm selectpicker show-menu-arrow" id="meses" name="meses"
-                title="Cantidad de Meses" data-fv-field="meses" tabindex="0">
-                <option value="1">1 Mes</option>
-                <option value="3">3 Meses</option>
-                <option value="6">6 Meses</option>
-                <option value="12">12 Meses</option>
-              </select>
+          <%let array= JSON.parse(DatosCookie) %>
+          <%let array2 = array.map(i=>Number(i)) %>
+          <%    products.filter(function (el) {                      %>
+          <%    return array2.includes(el.id);             %>
+          <%    }).map(function(el) {             %>                           %>
+  
+            <%// console.log(CookieBorrada)%>
+          <br>
+          <div class="col-sm-12 col-md-12 col-lg-12">
+    
+            <div class="col-sm-4 col-md-4">
+              <img src="/images/prdImages/<%= el.image %>" alt="">
             </div>
-            <form id= 'compras' action="/products/incendios" method="POST" >
-              <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
-            </form>
-            <form action="/products/carrito" method="POST">
-              <button name="borrado" value="<%=  el.id %>">Borrar producto</button>
-            </form>
             <br>
+            <div class="col-sm-8 col-md-8">
   
-            <br>
+              <img src="/images/photos/<%= el.image %>" alt=""><br>
+              <b>Descripcíon:</b> <%=  el.description %> <br>
+  
+              <b>Precio: $</b> <%=  el.price%> <br> <br>
+              
+              <div class="input-group">
+                <select class="form-control input-sm selectpicker show-menu-arrow" id="meses" name="meses"
+                  title="Cantidad de Meses" data-fv-field="meses" tabindex="0">
+                  <option value="1">1 Mes</option>
+                  <option value="3">3 Meses</option>
+                  <option value="6">6 Meses</option>
+                  <option value="12">12 Meses</option>
+                </select>
+              </div>
+              <form id= 'compras' action="/products/incendios" method="POST" >
+                <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
+              </form>
+              <form action="/products/carrito" method="POST">
+                <button name="borrado" value="<%=  el.id %>">Borrar producto</button>
+              </form>
+              <br>
+    
+              <br>
+            </div>
           </div>
+    
+          <% }).sort(); %>
+    
         </div>
-  
-        <% }).sort(); %>
-  
+      </div>
+      
+    </div>
+  </body>
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/header.ejs') %>
+<!-- CAMBIAR DESDE ACA -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 bloques">
+      <p>Incendios</p>
+      <div class="imagen">
+        <a href="" target="_blank"><img src="../images/fire.png" alt="" /></a>
+      </div>
+      <br>
+    <div class="bloques">
+      <p >Lorem ipsum dolor sit amet consectetur adipiscing elit elementum eget congue, tristique sollicitudin enim eu
+        nisi ultrices iaculis justo scelerisque, phasellus vestibulum metus rhoncus sapien a integer odio ligula.
+        Senectus parturient maecenas conubia netus pharetra felis placerat tincidunt, tortor fusce cras ligula nostra
+        cursus augue duis lacinia, nascetur semper a habitasse euismod inceptos vivamus. Sociosqu ante neque morbi
+        pulvinar habitasse enim himenaeos, ultrices per orci molestie nisi fames dignissim praesent, lacus iaculis class
+        cursus mollis eros.</p>
       </div>
     </div>
-    
+
   </div>
+  <div class="container">
+    <div class="row">
+      <br>
+      <%  products.filter(function (el) { %>
+      <%   return (el.prdCategId === 3); %>
+      <% }).map(function(el) { %>
+      <br>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+
+        <div class="col-sm-4 col-md-4">
+          <img src="/images/photos/<%= el.image %>" alt="">
+        </div>
+        <br>
+        <div class="col-sm-8 col-md-8">
+          <br>
+          <b>Descripcion:</b> <%=  el.description %> <br>
+          <b>Precio: $</b> <%=  el.price %> <br> <br>
+          
+          <form id= 'compras' action="/products/incendios" method="POST" >
+            <button name="item" value="<%=  el.id %>" type="submit">Comprar</button>
+          </form>
+          <br>
+
+          <br>
+        </div>
+      </div>
+
+      <% }).sort(); %>
+
+    </div>
+  </div>
+  
+</div>
+<!-- HASTA ACA -->
+<%- include('../partials/footer') %>
   <% - include('../partials/footer.ejs') %>
