@@ -1,14 +1,9 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path');
 
 
 // ************ Middlewares ************
-const authMiddleware = require('../middlewares/authMiddleware');
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const registerMiddleware = require('../middlewares/registerValidatorMiddleware');
 const upload = require('../middlewares/upload');
 
 // ************ Controller Require ************
@@ -29,7 +24,7 @@ router.get('/login', usersController.loginForm);
 router.post('/login', usersController.processLogin);
 
 /* GET to /users/profile */
-router.get('/profile', authMiddleware, usersController.profile);
+router.get('/profile', usersController.profile);
 
 /* GET to /users/logout */
 router.get('/logout', usersController.logout);
