@@ -1,33 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Register Form</title>
-</head>
+
 <%- include('../partials/head.ejs') %>
 <%- include('../partials/header.ejs') %>
-<body>
+<body></body>
 	<h2>Logueate</h2>
 
-	
-	<form action="/users/login" method="POST">
-		<div>
-			<p>Documento de Identidad:</p>
-			<input type="number" name="docNum">
+<body class="container-fluid" id="gtco-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6" id="contact">
+				<form action="/users/login" method="POST">
+				<input type="number" name="docNum" class="form-control" placeholder="Numero de DNI">
+				<input type="password" name="password" class="form-control" placeholder="Contraseña">
+				<button class='navbar-toggler'type="submit">Iniciar sesion</button>
+				</form>
+			</div>
 		</div>
-		<div>
-			<p>Contraseña:</p>
-			<input type="password" name="password">
-		</div>
-		<button type="submit">Iniciar sesion</button>
-		<br>
-		<p>
-			<input type="checkbox" name="remember">
-			Recordarme
-		</p>
-	</form>
-	<% - include('../partials/footer.ejs') %>
+	</div>
 </body>
 
 </html>

@@ -12,59 +12,69 @@
 	</ul>
 	<% } %>
 
-	<form action="/users/register" method="POST" enctype="multipart/form-data">
-		<div>
-			<label>Nombre completo: </label>
-			<input class="input-group" type="text" name="name">
-		</div>
-		<div>
-			<label>Email:</label>
-			<input class="input-group" type="email" name="email">
-		</div>
-		<div>
-			<label>Remail:</label>
-			<input class="input-group" type="email" name="reemail">
-		</div>
-		<div>
-			<label>Pass:</label>
-			<input class="input-group" type="password" name="password">
-		</div>
-		<div>
-			<label>Repass:</label>
-			<input class="input-group" type="password" name="repassword">
-		</div>
-		<p>
-			<div class="input-group">
-				<select class="form-control input-sm selectpicker show-menu-arrow" id="docType" name="docType"
-					title="Tipo de documento" data-fv-field="docType" tabindex="0">
-					<option value="DU">DNI</option>
-					<option value="LC">LIBRETA CIVICA</option>
-					<option value="CL">CUIL</option>
-				</select>
-			</div>
-		</p>
-		<div>
-			<label>Numero de Documento:</label>
-			<input class="input-group" type="number" name="docNum">
-		</div>
-		<div class="custom-file">
-			<input type="file" class="custom-file-input" name='avatar'>
-			<label class="custom-file-label imp" for="avatar">Elija una imagen de referencia</label>
-		</div>
-		</p>
-		<div>
-			<select class="input-group" name="usrCategId">
-				<label>Tipo de Usuario</label>
-				<% usrCategories.forEach(usrCategId => { %>
-				<option value="<%= usrCategId.id %>"><%= usrCategId.name %></option>
-				<% }) %>
 
-			</select>
+</body>
+<body class="container-fluid" id="gtco-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6" id="contact">
+				<form action="/users/register" method="POST" enctype="multipart/form-data">
+					<div>
+						<label>Nombre completo: </label>
+						<input class="input-group" type="text" name="name">
+					</div>
+					<div>
+						<label>Email:</label>
+						<input class="input-group" type="email" name="email">
+					</div>
+					<div>
+						<label>Remail:</label>
+						<input class="input-group" type="email" name="reemail">
+					</div>
+					<div>
+						<label>Pass:</label>
+						<input class="input-group" type="password" name="password">
+					</div>
+					<div>
+						<label>Repass:</label>
+						<input class="input-group" type="password" name="repassword">
+					</div>
+					<p>
+						<div class="input-group">
+							<select class="form-control input-sm selectpicker show-menu-arrow" id="docType" name="docType"
+								title="Tipo de documento" data-fv-field="docType" tabindex="0">
+								<option value="DU">DNI</option>
+								<option value="LC">LIBRETA CIVICA</option>
+								<option value="CL">CUIL</option>
+							</select>
+						</div>
+					</p>
+					<div>
+						<label>Numero de Documento:</label>
+						<input class="input-group" type="number" name="docNum">
+					</div>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" name='avatar'>
+						<label class="custom-file-label imp" for="avatar">Elija una imagen de referencia</label>
+					</div>
+
+			
+					</p>
+					<div>
+						<select class="input-group" name="usrCategId">
+							<label>Tipo de Usuario</label>
+							<% usrCategories.forEach(usrCategId => { %>
+							<option value="<%= usrCategId.id %>"><%= usrCategId.name %></option>
+							<% }) %>
+			
+						</select>
+					</div>
+					</p>
+					</p>
+					<button type="submit">Registrarse</button>
+				</form>
+				</form>
+			</div>
 		</div>
-		</p>
-		</p>
-		<button type="submit">Registrarse</button>
-	</form>
-	
-<%- include('../partials/footer') %>
+	</div>
 </body>

@@ -1,96 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <%- include('partials/head.ejs') %>
 <!-- HEADER DESDE ACA -->
 
-<div class="headerHome">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 menu">
-            <div class="col-sm-7 logo">
-                <a href="http://localhost:3000/" target=" "><img src="/images/logo.png" alt="" class="imagenlogo" /></a>
-            </div>
-            <div class="col-sm-5 contacto">
-                <div class="row">
-                    <div class="col-sm-6 col-md-2 info"><a class="nav-link" href="/">Home</a></div>
-                    <div class="col-sm-6 col-md-2 info"><a class="nav-link" href="#">Nosotros</a></div>
-                    <div class="col-sm-6 col-md-2 info"><a class="nav-link" href="#">Contacto</a></div>
-                    <div class="col-sm-6 col-md-2 info">
-                        <a href="/users/profile" target=""><img src="/images/people.png" alt="" /></a></div>
-                    <div class="col-sm-6 col-md-2 info">
-                        <a href="" target=" "><img src="/images/lens.png" alt="" /></a>
-                    </div>
-                </div>
-            </div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+    <div class="container"><a class="navbar-brand">Praesidium</a>
+        <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="http://localhost:3000/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="/users/login" class="btn btn-outline-dark my-2 my-sm-0 mr-3 text-uppercase">login</a> 
+                <a href="/users/register" class="btn btn-info my-2 my-sm-0 text-uppercase">sign
+                up</a>
+            </form>
         </div>
     </div>
-</div>
+</nav>
 <!-- CAMBIAR DESDE ACA -->
 
-<body>
-    <div class="body">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="textoseguro">
-                    <p>¿Que tipo de seguro quieres?</p>
+
+    
+    <body>
+       
+        <div class="container-fluid gtco-banner-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1> Una compañia dispuesta a <span>cuidar</span> a personas </h1>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus turpis nisl. </p>
+                        <a href="#">Sobre Nosotros<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                    <div class="col-md-6">
+                        <div class="card"><img class="card-img-top img-fluid" src="images/banner-img.png" alt=""></div>
+                    </div>
                 </div>
-                <div class="body">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-4 bloques">INCENDIOS
-                            <div class="imagen">
-                                <a href="products/incendios" target=" "><img src="/images/fire.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="container-fluid gtco-features" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h2> Busca entre nuestros servicios<br/>
+                           que tenemos para ofrecerte </h2>
+                        <p> Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla, cursus
+                            impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac, dictum id
+                            neque. </p>
+                       </div>
+                    <div class="col-lg-8">
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="card text-center">
+                                    <div class="oval"><img class="card-img-top" src="images/web-design.png" alt=""></div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">Vida</h3>
+                                        <p class="card-text"> <button type="submit" class="btn btn-primary bloques"
+                                            onclick="location='/products/vida'">Visitar</button></p>
+                                    </div>
+                                </div>
                             </div>
-                            <br>
-                            <p>Un seguro que se puede complementar con coberturas opcionales, según tus necesidades y prioridades.
-                                Incluyendo póliza que cubre a tu hogar, auto o bien en caso de incendio.
-                                <br>
-                                A un costo accesible obtenés la protección y el respaldo de una empresa lider en
-                                Argentina.
-                                <br>
-                                <br>
-                                <br>
-                            </p>
-                            <button type="submit" class="btn btn-primary"
-                                onclick="location='products/incendios'">Visitar</button>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-4 bloques">ROBO Y/O PERDIDA
-                            <div class="imagen">
-                                <a href="products/robo-perdida" target=" "><img src="/images/user.png" alt="" /></a>
+                            <div class="col">
+                                <div class="card text-center">
+                                    <div class="oval"><img class="card-img-top" src="images/seo.png" alt=""></div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">Incendios</h3>
+                                        <p class="card-text"> <button type="submit" class="btn btn-primary bloques"
+                                            onclick="location='/products/incendios'">Visitar</button></p>
+                                    </div>
+                                </div>
+                                <div class="card text-center">
+                                    <div class="oval"><img class="card-img-top" href="/products/vida" src="images/graphics-design.png" alt=""></div>
+                                    <div class="card-body">
+                                        <h3 href="/products/vida" class="card-title">Robo-perdida</h3>
+                                        <p class="card-text"> <button type="submit" class="btn btn-primary"
+                                            onclick="location='/products/Robo-perdida'">Visitar</button></p>
+                                    </div>
+                                </div>
                             </div>
-                            <br>
-                            <p>Es una combinación de seguros que presenta planes básicos por vivienda / automovil / moto, según el valor de la propiedad, los riesgos y tus necesidades particulares.
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                </p>
-                            <button type="submit" class="btn btn-primary"
-                                onclick="location='products/robo-perdida'">Visitar</button>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4 bloques">VIDA
-                            <div class="imagen">
-                                <a href="/products/vida" target=" "><img src="/images/heart.png" alt="" /></a>
-                            </div>
-                            <br>
-                            <p>
-                                Seguros innovadores que se adaptan a todas tus necesidades.
-                                <strong>SALUD</strong>
-                                Para intervenciones quirúrgicas de alta complejidad, a un costo
-                                accesible.
-                                <strong>PROFESIONALES</strong>
-                                Es un seguro que te cubre en caso de accidentes personales ocurridos en tu trabajo.
-                            </p>
-
-                            <button type="submit" class="btn btn-primary"
-                                onclick="location='/products/vida'">Visitar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+       
+        
+       
+      
+        
+        
+        
+       
+        </body>
 
 <!-- HASTA ACA -->
 <%- include('partials/footer') %>

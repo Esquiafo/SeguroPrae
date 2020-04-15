@@ -26,7 +26,7 @@ router.post('/register', upload.single('avatar'), usersController.storeUser);
 router.get('/login', usersController.loginForm);
 
 /* POST to /users/login */
-router.post('/login',guestMiddleware, usersController.processLogin);
+router.post('/login', usersController.processLogin);
 
 /* GET to /users/profile */
 router.get('/profile', authMiddleware, usersController.profile);

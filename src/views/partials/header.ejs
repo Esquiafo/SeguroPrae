@@ -1,54 +1,19 @@
 <!-- HEADER DESDE ACA -->
-<div class="headerHome">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 menu">
-            <div class="col-sm-7 logo">
-                <a href="http://localhost:3000/" target=" "><img src="/images/logo.png" alt="" class="imagenlogo"/></a>
-            </div>
-            <div class="col-sm-5 contacto">
-                <div class="row">
-                    <div class="col-sm-6 col-md-2 info"><a class="nav-link" href="/">Home</a></div>
-                    <div class="col-sm-6 col-md-2 info"><a class="nav-link" href="#">Nosotros</a></div>
-                    <div class="col-sm-6 col-md-2 info"><a class="nav-link" href="#">Contacto</a></div>
-                    <div class="col-sm-6 col-md-2 info">
-                        <a href="/users/profile" target=""><img src="/images/people.png" alt="" /></a></div>
-                    <div class="col-sm-6 col-md-2 info">
-                        <div class="container">
-                            <div class="row align-items-stretch justify-content-between">
-                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
-                                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                                        <ul class="navbar-nav mr-auto">
-                                            <li class="nav-item dropdown">
-                                                <img src="/images/lens.png" class="nav-link dropdown-toggle img-fluid" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false"></img>
-                                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
-                                                    <table id="lista-carrito" class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Imagen</th>
-                                                                <th>Nombre</th>
-                                                                <th>Precio</th>
-                                                                <th></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody></tbody>
-                                                    </table>
-                
-                                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
-                                                        Compra</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+    <div class="container"><a class="navbar-brand">Praesidium</a>
+        <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="http://localhost:3000/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+            <form class="">
+                <a href="/users/login" class="btn  my-2 my-sm-0 text-uppercase">login</a> 
+                <a href="/users/register" class="btn btn-info my-2 my-sm-0 text-uppercase">sign
+                up</a>
+            </form>
         </div>
     </div>
-</div> 
+</nav>
