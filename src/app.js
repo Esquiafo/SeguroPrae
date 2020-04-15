@@ -38,10 +38,13 @@ app.set('views', './src/views'); // Seteo de la ubicación de la carpeta "views"
 const mainRouter = require('./routes/main');
 const usersRouter = require('./routes/usersRoutes');
 const productsRouter = require('./routes/productsRoutes');
+// API
+const apiProductsRouter = require('./routes/api/products');
+
 app.use('/', mainRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
-
+app.use('/api/products', apiProductsRouter);
 
 
 // ************ DON'T TOUCH FROM HERE ************
