@@ -148,12 +148,10 @@ module.exports = {
 		  res.redirect('../');
 	},
 	carritoView: (req, res) => {
-		// let errorView=res.status(500)
-		// if (errorView===errorView){
-		// 	res.status('El carrito esta vacio, metele cosas pa, para que queres comprar si sabes que no hay nada, vos vas al super y vas a la caja con el chango vacio? No, bueno aca tampoco');
-		// }
+
 		DatosCookie=req.cookies.compra
-		Products
+		if (DatosCookie!=undefined) {
+			Products
 		
 			.findAll()
 			.then(products => {
@@ -165,6 +163,10 @@ module.exports = {
 			})
 			
 			.catch(error => res.send(error));
+		}else{
+			res.send('El carrito esta vacio, metele cosas pa, para que queres comprar si sabes que no hay nada, vos vas al super y vas a la caja con el chango vacio? No, bueno aca tampoco')
+		}
+		
 		},
 	carritoBorrar: (req,res) => {
 		Products

@@ -21,8 +21,7 @@ app.use(cookieParser());
 app.use(session({
   secret: 'lo que sea',
   resave: true,
-  saveUninitialized: true,
-  keys: 'hola'
+  saveUninitialized: true
 }));
 app.use(userCookieMiddleware);
 app.use(localsMiddleware);
