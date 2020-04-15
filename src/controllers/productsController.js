@@ -143,10 +143,15 @@ module.exports = {
 			console.log('Creando datos por primera vez')
 			let contenidoCookie =  [req.body.item]
 			res.cookie('compra', JSON.stringify(contenidoCookie), { maxAge: (1000 * 60) * 10 }); // Seteo la cookie para que nunca mas sea undefined
+			console.log(contenidoCookie)
 		  }
 		  res.redirect('../');
 	},
 	carritoView: (req, res) => {
+		// let errorView=res.status(500)
+		// if (errorView===errorView){
+		// 	res.status('El carrito esta vacio, metele cosas pa, para que queres comprar si sabes que no hay nada, vos vas al super y vas a la caja con el chango vacio? No, bueno aca tampoco');
+		// }
 		DatosCookie=req.cookies.compra
 		Products
 		

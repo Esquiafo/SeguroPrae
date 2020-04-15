@@ -73,23 +73,15 @@ const controller = {
 		Users
 		.findAll({where: {docNum: req.body.docNum}}) //Busca en la DB usuarios con el mismo valor
 		.then(users => {
-	  let usuario = users[0].dataValues;
+		let usuario = users[0].dataValues;
 	if (usuario != undefined){
 
 	
-	let conectado = bcrypt.compareSync(req.body.password , usuario.password);
-	
-	
+		let conectado = bcrypt.compareSync(req.body.password , usuario.password);
+
 		if (conectado) {
 			
 			req.session.user = usuario;
-			
-			if (req.body.remember='on') {
-				
-				console.log(req.body.remember)
-				
-				res.cookie('usuario', bcrypt.hashSync(req.body.docNum, 11), { maxAge: 9999999});
-			}
 			
 			 res.redirect('/users/profile');
 		}else{
@@ -97,7 +89,7 @@ const controller = {
 			res.send('Datos incorrectos');
 		}
 	}else{
-		res.send('El usuario no existe');
+		res.send('El usuario no existe')
 	}
 
 })

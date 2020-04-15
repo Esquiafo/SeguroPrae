@@ -1,5 +1,5 @@
 function guestMiddleware (req, res, next) {
-	// Si no existe nada en la prop user de session
+	console.log(req.body)
 	if(req.session.user == undefined) {
 		return next();
 	}

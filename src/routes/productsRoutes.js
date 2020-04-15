@@ -9,6 +9,7 @@ const productsController = require('../controllers/productsController');
 const carrito = require('../middlewares/carrito');
 const carritoborrado = require('../middlewares/carritoborrado');
 const upload = require('../middlewares/upload');
+const auth = require('../middlewares/authMiddleware');
 
 router.get('/carrito',productsController.carritoView);
 router.post('/carrito', carritoborrado,productsController.carritoBorrar);
@@ -23,7 +24,7 @@ router.get('/robo-perdida', productsController.productDetailsroboperdida);
 router.post('/robo-perdida',carrito ,  productsController.carritoForm);
 
 // /products/create (GET) Formulario de creación de productos
-router.get('/productAdd', productsController.productAdd);
+router.get('/productAdd', auth,productsController.productAdd);
 
 // /products (POST) Acción de creación (a donde se envía el formulario)
 router.post('/productAdd',upload.single('image'),productsController.storeProduct);
@@ -35,7 +36,7 @@ router.get('/allProducts', productsController.productsAll);
 router.post('/deleteProduct/:productId', productsController.deleteProduct);
 
 // /products/:id/edit (GET) Formulario de edición de productos
-router.get('/productUpd/:productId', productsController.updProductShow);
+router.get('/productUpd/:productId',auth, productsController.updProductShow);
 
 // /products/:id (PUT) Acción de edición (a donde se envía el formulario):
 router.post('/productUpd/:productId', productsController.updProduct);
