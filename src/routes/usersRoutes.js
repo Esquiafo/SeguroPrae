@@ -14,6 +14,7 @@ const usersController = require('../controllers/usersController');
 router.get('/register', usersController.registerForm);
 
 /* POST to /users/register */
+//router.post('/register',registerMiddleware, upload.single('avatar'), usersController.storeUser);
 router.post('/register', upload.single('avatar'), usersController.storeUser);
 
 /* GET to /users/login */
