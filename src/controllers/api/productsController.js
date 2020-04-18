@@ -10,7 +10,7 @@ module.exports = {
             if (Number(req.query.page) == 1){
                 offsetPage = 0;
             }
-            offsetPage = (Number(req.query.page) - 1) * 2;
+            offsetPage = (Number(req.query.page) - 1) * 10;
         }
 
         Products
@@ -20,7 +20,7 @@ module.exports = {
                     association: 'prdCategory',
                     attributes: ["id", "name"]
                 }],
-                limit: 2,
+                limit: 10,
                 offset: offsetPage
             })
             .then( async products => {

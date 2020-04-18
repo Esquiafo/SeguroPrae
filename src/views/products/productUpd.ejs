@@ -18,7 +18,7 @@
            <h6>Editando producto <%= updPrd.description %></h6>
             <form class="was-validated" action="/products/productUpd/<%= updPrd.id %>" method="POST" enctype="multipart/form-data">
                 <div class="input-group formImp formImp1">
-                    <input class="form-control input-sm imp" type="text" name="prdCategId" value="<%= updPrd.prdCategory.name %>" 
+                    <input class="form-control input-sm imp" type="text" name="prdCategId" value="<%= updPrd.prdCategory.id %>" 
                         id="prdCategId" >
                 </div>
                 
